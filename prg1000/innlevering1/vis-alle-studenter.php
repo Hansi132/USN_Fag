@@ -7,7 +7,11 @@
 
 <?php
     $file = file_get_contents("./student.txt", FILE_USE_INCLUDE_PATH);
-    var_dump($file);
+    $students = explode(";", $file);
+    for ($i = 1; $i <= 10; $i++){
+        echo $students[$i];
+    }
+
 ?>
 
 </body>
