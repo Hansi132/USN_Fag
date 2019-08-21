@@ -19,9 +19,17 @@
 
 
 <?php
-    $post = $_POST;
-    var_dump($post);
+$post = $_POST;
+//unset($post[2]);
+$storage = implode(";", $post);
+$myfile = "./klasse.txt";
+$handle = fopen($myfile, 'a') or die('Cannot open file:  '.$myfile);
+$datatofile = "\n". $storage;
+fwrite($handle, $datatofile);
+fclose($handle);
 
+
+echo $storage;
 ?>
 
 </body>
