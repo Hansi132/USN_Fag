@@ -8,13 +8,11 @@
 <?php
     $file = file_get_contents("./student.txt", FILE_USE_INCLUDE_PATH);
     $students = explode(";", $file);
-    for ($i = 1; $i <= 2; $i++){
+    for ($i = 1; $i <= sizeof($students);){
         echo $students[$i];
+        $i =+ 4;
     }
 
-    foreach ($students as $name){
-
-    }
 
 ?>
 
