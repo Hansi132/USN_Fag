@@ -22,9 +22,11 @@
 $post = $_POST;
 //unset($post[2]);
 $storage = implode(";", $post);
+echo $storage;
 $myfile = "./klasse.txt";
 $handle = fopen($myfile, 'a') or die('Cannot open file:  '.$myfile);
 $datatofile = $storage . "\n";
+echo $datatofile;
 fwrite($handle, $datatofile);
 fclose($handle);
 
