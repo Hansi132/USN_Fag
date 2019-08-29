@@ -1,0 +1,158 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+  background-color: #f4f4f4;
+}
+
+/* Global */
+.container{
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+header{
+  background: #272734;
+  color: #ffffff;
+  padding-top: 30px;
+  min-height: 70px;
+  border-bottom: #2865bb 3px solid;
+}
+
+header a{
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+header ul{
+  margin: 0;
+  padding: 0;
+}
+
+header li{
+  float: left;
+  display: inline;
+  padding: 0 20px 0 20px;
+}
+
+header #branding{
+  float: left;
+}
+
+header #branding h1{
+  margin: 0;
+}
+
+header nav{
+  float: right;
+  margin-top: 10px;
+}
+
+header .highlight, header .current a{
+  color: #2865bb;
+  font-weight: bold;
+}
+
+header a:hover{
+  color: #cccccc;
+  font-weight: bold;
+
+}
+
+/* Showcase */
+#showcase{
+  min-height: 400px;
+  background:url("../img/unknown.png") no-repeat 0 -10px;
+  text-align: center;
+  color: #fffffflo;
+  background-size: cover
+
+}
+
+#showcase h1{
+  margin-top: 50px;
+  font-size: 55px;
+  margin-bottom: 10px;
+}
+
+#showcase p{
+  font-size: 20px;
+}
+
+
+footer{
+  padding: 20px;
+  margin-top: 12%;
+  color: #ffffff;
+  background-color: #272734;
+  text-align: center;
+}
+
+.banner {
+  max-width: 100%;
+  min-width: 0%;
+  height: auto;
+}
+
+.bannertop {
+  position: relative;
+  text-align: center;
+  font-size: 8vw;
+  font-weight: bolder;
+  color: white;
+  text-shadow: 2px 2px 5px grey;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.quote{
+  text-align:center;
+  font-style: italic;
+  font-family: "Times New Roman", Times, serif;
+}
+
+#boxes{
+  margin-top: 20px;
+}
+
+#boxes .box{
+  float: left;
+  width: 30%;
+  text-align: center;
+  margin: 20px;
+  background-color: ;
+  padding-bottom: 30px;
+  background: -webkit-linear-gradient(top, lightgrey 20%, #f4f4f4);
+}
+#boxes p {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#boxes .box img{
+  width: 290px;
+  height: 225px;
+}
+
+.childdivtool {
+  background: rgba(0,127,173,0.54);
+background: -moz-linear-gradient(-45deg, rgba(0,127,173,0.54) 0%, rgba(0,187,255,0.17) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(0,127,173,0.54)), color-stop(100%, rgba(0,187,255,0.17)));
+background: -webkit-linear-gradient(-45deg, rgba(0,127,173,0.54) 0%, rgba(0,187,255,0.17) 100%);
+background: -o-linear-gradient(-45deg, rgba(0,127,173,0.54) 0%, rgba(0,187,255,0.17) 100%);
+background: -ms-linear-gradient(-45deg, rgba(0,127,173,0.54) 0%, rgba(0,187,255,0.17) 100%);
+background: linear-gradient(135deg, rgba(0,127,173,0.54) 0%, rgba(0,187,255,0.17) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007fad', endColorstr='#00bbff', GradientType=1 );
+  padding: 1px;
+  color: white;
+}
