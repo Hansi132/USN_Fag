@@ -169,23 +169,28 @@ footer{
   height: 85px;
 }
 
-.overskrift {
-              padding-top: 60px;
-              font-size: 3em;
-              position: absolute;
-              color: #2865bb;
+footer{
 
-              left: 50%;
-              transform: translate(-50%, -50%);
+  color: #ffffff;
+  background-color: #272734;
+  text-align: center;
+  width: 100%;
+}
+
+
+.overskrift {
+              display: grid;
               text-align: center;
+              color: #2865bb;
 
               }
 
-#bakgrunn {background-image: url(../img/bilde13.jpg);
+#bakgrunn {	 background-image: url(../img/bilde13.jpg);
              background-size:cover;
              background-repeat: no-repeat;
-             height: 1000px;
+             background-position: center center;
              background-color: #f4f4f4;
+             background-attachment: fixed;
 
              }
 
