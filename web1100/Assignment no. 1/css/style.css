@@ -8,6 +8,72 @@ body{
 }
 
 /* Global */
+.contactinfo{
+  margin: 30px;
+  padding-left: 10px;
+}
+
+.forms{
+  padding: 1%
+  margin: auto;
+}
+
+.forms #email{
+  width: 300px;
+  border: 1;
+  background-color: #f4f4f4;
+  padding: 8px;
+  margin-top: 10px;
+  border-color: #2865bb;
+  text-align: center;
+  margin-right: 100%;
+
+}
+
+.forms #case{
+  width: 300px;
+  height: 100px;
+  border: 1;
+  border-color: #2865bb;
+  padding: 8px;
+  margin-top: 8px;
+  background-color: #f4f4f4;
+  text-align: center;
+  margin-right: 100%;
+
+
+
+}
+
+.mapouter{
+  position: right;
+  text-align:right;
+  height:500px;
+  width:381px;
+  }
+
+.gmap_canvas {
+    overflow:hidden;
+    background:none!important;
+    height:500px;
+    width:381px;
+    position: right;
+    padding-left: 40px;
+    margin-top: 40px;
+    margin-bottom: 100%;
+    }
+
+.forms #submit{
+  padding: 8px;
+  margin-top: 10px;
+  border: 0;
+  color: #ffffff;
+  background-color: #2865bb;
+  padding: 10px;
+  margin-right: 100%;
+
+}
+
 .container{
   width: 80%;
   margin: auto;
@@ -106,7 +172,7 @@ header a:hover{
 /* Showcase */
 #showcase{
   min-height: 400px;
-  background:url("../img/unknown.png") no-repeat 0 -10px;
+  background:url("../img/showcase.png") no-repeat 0 -10px;
   text-align: center;
   color: #fffffflo;
   background-size: cover
