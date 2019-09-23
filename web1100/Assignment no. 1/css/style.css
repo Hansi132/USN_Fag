@@ -175,6 +175,14 @@ header a:hover{
   background:url("../img/showcase.png") no-repeat 0 -10px;
   text-align: center;
   color: #fffffflo;
+  background-size: auto;
+
+}
+
+#showcase2{
+  min-height: 400px;
+  text-align: center;
+  color: #fffffflo;
   background-size: cover
 
 }
