@@ -132,7 +132,7 @@ footer{
   margin: 20px;
   background-color: ;
   padding-bottom: 30px;
-  background: -webkit-linear-gradient(top, lightgrey 20%, #f4f4f4);
+  box-shadow: 1px 1px 10px grey;
 }
 #boxes p {
   padding-left: 20px;
