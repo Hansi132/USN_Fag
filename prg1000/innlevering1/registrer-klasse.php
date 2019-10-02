@@ -14,19 +14,18 @@
     <input type="text" name="klassenavn" required><br>
     <br>
     <input type="submit" name=""><br>
+    <br>
+    <input type="reset">
 
 </form>
 
 
 <?php
 $post = $_POST;
-//unset($post[2]);
 $storage = implode(";", $post);
-echo $storage;
 $myfile = "./klasse.txt";
 $handle = fopen($myfile, 'a') or die('Cannot open file:  '.$myfile);
-$datatofile = $storage . "\n";
-echo $datatofile;
+$datatofile = $storage . ";\n";
 fwrite($handle, $datatofile);
 fclose($handle);
 

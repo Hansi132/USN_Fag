@@ -18,6 +18,8 @@
     <input type="text" name="Klassekode" required><br>
     <br>
     <input type="submit" name=""><br>
+    <br>
+    <input type="reset">
 
 </form>
 
@@ -28,7 +30,7 @@ $post = $_POST;
 $storage = implode(";", $post);
 $myfile = "./student.txt";
 $handle = fopen($myfile, 'a') or die('Cannot open file:  '.$myfile);
-$datatofile = $storage . "\n";
+$datatofile = $storage . ";\n";
 fwrite($handle, $datatofile);
 fclose($handle);
 
