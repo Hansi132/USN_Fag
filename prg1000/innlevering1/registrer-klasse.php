@@ -16,9 +16,9 @@
     Klasse navn:<br>
     <input type="text" name="klassenavn" required><br>
     <br>
-    <input type="submit" name="Registrer Klasse"><br>
+    <button name="name" type="submit">Registrer klasse</button><br>
     <br>
-    <input type="reset" name="Nullstill">
+    <button name="name" type="reset">Nullstill</button>
 
 </form>
 

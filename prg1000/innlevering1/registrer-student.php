@@ -20,9 +20,9 @@
     Klassekode:<br>
     <input type="text" name="Klassekode" required><br>
     <br>
-    <input type="submit" name="Registrer student"><br>
+    <button name="name" type="submit">Registrer Student</button><br>
     <br>
-    <input type="reset" name="Nullstill">
+    <button name="name" type="reset">Nullstill</button>
 
 </form>
 

@@ -10,10 +10,9 @@
 <form action="./vis-klasseliste.php" method="post">
     <input type="text" name="Sok" required>
     <br>
-    <input type="submit" name="Søk klasseliste"><br>
+    <button name="name" type="submit">Sok</button><br>
     <br>
-    <input type="reset" name="Nullstill">
-    <br>
+    <button name="name" type="reset">Nullstill</button>
 
 </form>
 
