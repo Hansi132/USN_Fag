@@ -25,13 +25,34 @@
 
 
 <?php
+
+
+
 $post = $_POST;
+
+$lovligbrukenavn = true;
+$lovlignavn = true;
+$lovligetternavn = true;
+$lovligklassekode = true;
+
+if(!$post){
+    $lovligbrukenavn = false;
+    $lovlignavn = false;
+    $lovligetternavn = false;
+    $lovligklassekode = false;
+    print("Du har ikke fylt ut feltene riktig");
+}
+
+if($lovligklassekode && $lovligbrukenavn && $lovligetternavn && $lovlignavn) {
+
 //unset($post[2]);
-$storage = implode(";", $post);
-$myfile = "./student.txt";
-$handle = fopen($myfile, 'a') or die('Cannot open file:  '.$myfile);
-$datatofile = $storage . ";\n";
-fwrite($handle, $datatofile);
+    $storage = implode(";", $post);
+    $myfile = "./student.txt";
+    $handle = fopen($myfile, 'a') or die('Cannot open file:  ' . $myfile);
+    $datatofile = $storage . ";\n";
+    fwrite($handle, $datatofile);
+
+}
 fclose($handle);
 
 ?>

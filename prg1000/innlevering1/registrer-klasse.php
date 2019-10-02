@@ -22,11 +22,25 @@
 
 <?php
 $post = $_POST;
-$storage = implode(";", $post);
-$myfile = "./klasse.txt";
-$handle = fopen($myfile, 'a') or die('Cannot open file:  '.$myfile);
-$datatofile = $storage . ";\n";
-fwrite($handle, $datatofile);
+
+$lovligklassekode = true;
+$lovligklassenavn = true;
+
+if(!$post){
+    $lovligklassekode = false;
+    $lovligklassenavn = false;
+    print("Du har ikke fylt ut feltene");
+}
+
+if ($lovligklassenavn && $lovligklassekode) {
+
+    $storage = implode(";", $post);
+    $myfile = "./klasse.txt";
+    $handle = fopen($myfile, 'a') or die('Cannot open file:  ' . $myfile);
+    $datatofile = $storage . ";\n";
+    fwrite($handle, $datatofile);
+
+}
 fclose($handle);
 
 ?>
