@@ -8,14 +8,17 @@
 <body>
 
 <form action="./registrer-klasse.php" method="post">
+    Registrer klasse.
+    <br>
+    <br>
     Klasse kode:<br>
     <input type="text" name="klassekode" required><br>
     Klasse navn:<br>
     <input type="text" name="klassenavn" required><br>
     <br>
-    <input type="submit" name=""><br>
+    <input type="submit" name="Registrer Klasse"><br>
     <br>
-    <input type="reset">
+    <input type="reset" name="Nullstill">
 
 </form>
 
@@ -39,6 +42,7 @@ if ($lovligklassenavn && $lovligklassekode) {
     $handle = fopen($myfile, 'a') or die('Cannot open file:  ' . $myfile);
     $datatofile = $storage . ";\n";
     fwrite($handle, $datatofile);
+    Print("Ny klasse er registrert");
 
 }
 fclose($handle);
