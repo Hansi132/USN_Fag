@@ -39,6 +39,8 @@
     <p id="text">Hei og velkommen til min innlevering2</p>
 </section>
 
+<div id="melding"></div>
+
 <php>
 
 </php>

@@ -56,6 +56,8 @@
     </form>
 </section>
 
+<div id="melding"></div>
+
 <php>
 
 </php>
