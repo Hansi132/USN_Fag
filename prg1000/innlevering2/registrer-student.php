@@ -1,65 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
 <head>
-    <title>
-        Registrer student
-    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Assignment 1 Web">
+    <meta name="keywords" content="css, html, Assignment, fun, figure, static, website, building">
+    <meta name="author" content="Hans Kristian Markeseth">
+    <title>Assignment 2 | Welcome</title>
+    <link rel="stylesheet" href="stil.css">
+    <script src="ajax.js"> </script>
+    <script src="valid.js"> </script>
+    <script src="case.js"> </script>
+
+
 </head>
 <body>
+<header>
+    <div class="container">
+        <div id="branding">
+            <h1><span class="highlight">A</span>ssignment<span class="highlight">2</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="registrer-klasse.php">Registrer Klasse</a></li>
+                <li class="current"><a href="registrer-student.php">Registrer Student</a></li>
+                <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
+                <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
+                <li><a href="vis-klasseliste.php">vis klasseliste</a><li>
+                <li><a href="klasse.txt">Klasse.txt</a><li>
+                <li><a href="student.txt">Student.txt</a><li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-<form action="./registrer-student.php" method="post">
-    Registrer student.
-    <br>
-    <br>
-    Brukernavn:<br>
-    <input type="text" name="Brukernavn" required><br>
-    Fornavn:<br>
-    <input type="text" name="Fornavn" required><br>
-    Etternavn:<br>
-    <input type="text" name="Etternavn" required><br>
-    Klassekode:<br>
-    <input type="text" name="Klassekode" required><br>
-    <br>
-    <button name="name" type="submit">Registrer Student</button><br>
-    <br>
-    <button name="name" type="reset">Nullstill</button>
+<section id="showcase">
+    <p id="text">Hei og velkommen til min innlevering2</p>
+</section>
 
-</form>
+<php>
 
-
-<?php
-
-
-
-$post = $_POST;
-
-$lovligbrukenavn = true;
-$lovlignavn = true;
-$lovligetternavn = true;
-$lovligklassekode = true;
-
-if(!$post){
-    $lovligbrukenavn = false;
-    $lovlignavn = false;
-    $lovligetternavn = false;
-    $lovligklassekode = false;
-    print("Du har ikke fylt ut feltene riktig");
-}
-
-if($lovligklassekode && $lovligbrukenavn && $lovligetternavn && $lovlignavn) {
-
-//unset($post[2]);
-    $storage = implode(";", $post);
-    $myfile = "./student.txt";
-    $handle = fopen($myfile, 'a') or die('Cannot open file:  ' . $myfile);
-    $datatofile = $storage . ";\n";
-    fwrite($handle, $datatofile);
-    Print("Ny klasse er registrert");
-
-}
-fclose($handle);
-
-?>
-
-</body>
-</html>
+</php>
