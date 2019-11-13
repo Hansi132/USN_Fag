@@ -36,11 +36,92 @@
 </header>
 
 <section id="showcase">
-    <p id="text">Hei og velkommen til min innlevering2</p>
+
+    <form class="form" method="POST" name="forms" onsubmit="return validateStudent()" action="registrer-student.php">
+
+        Registrer student <br> <br>
+        Fornavn <br>
+        <input type="text" value="" name="fornavn" id="fornavn" onFocus="fokus(this)"
+               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"
+        />
+        <br> Etternavn <br>
+        <input type="text" value="" name="etternavn" id="etternavn" onFocus="fokus(this)"
+               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"
+        />
+        <br> Klassekode <br>
+        <input type="text" value="" name="klassekode" id="klassekode" onFocus="fokus(this)"
+               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"
+               onchange="visOppgaver(this.value); this.value = this.value.toUpperCase();"
+        />
+        <br> Brukernavn <br>
+        <input type="text" value="" name="brukernavn" id="brukernavn" onFocus="fokus(this)"
+               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"
+        />
+
+        <br>
+        <br>
+
+
+
+
+        <input type="submit" name="submit" id="submit" value="Registrer student"/>
+        <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()" >
+
+
+    </form>
+
 </section>
 
 <div id="melding"></div>
 
-<php>
+<div id="melding1"></div>
 
-</php>
+<div id="melding2"></div>
+
+<?php
+
+    error_reporting (E_ALL ^ E_NOTICE);
+
+    $myfile = "./student.txt";
+
+    $fornavn = $_POST["fornavn"];
+    $etternavn = $_POST["etternavn"];
+    $brukernavn = $_POST["brukernavn"];
+    $klassekode = $_POST["klassekode"];
+
+    $lovligKlassekode = true;
+    $lovligfornavn = true;
+    $lovligetternavn = true;
+    $lovligbrukernavn = true;
+
+
+if(!$klassekode){
+    $lovligKlassekode=false;
+    print("Klassekode er ikke fylt ut");
+}
+else if (strlen($klassekode)!=3){
+    $lovligKlassekode=false;
+    print("Klassekode er ikke tre tegn");
+}
+
+if(!$fornavn || !$etternavn || !$brukernavn){
+    $lovligKlassekode=false;
+    print("Alle felt er ikke fylt ut");
+}
+
+if($lovligKlassekode && $lovligfornavn && $lovligetternavn && $lovligbrukernavn){
+
+    $filehandler = "a";
+
+    $line = $brukernavn . ";" . $fornavn . ";" . $etternavn . ";" . $klassekode . ";" . "\n";
+
+    $file = fopen($myfile, $filehandler);
+
+    fwrite($file,$line);
+
+    fclose($file);
+
+}
+
+
+?>

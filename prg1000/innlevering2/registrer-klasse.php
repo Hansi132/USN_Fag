@@ -36,17 +36,20 @@
 </header>
 
 <section id="showcase">
-    <form class="form" method="POST" id="registrerFagSkjema" action="registrer-klasse.php" name="registrerFagSkjema"  onSubmit="return validate()">
+    <form class="form" method="POST" id="registrerFagSkjema" action="registrer-klasse.php" name="registrerFagSkjema"  onSubmit="return validateClass()">
 
 
         Registrer klasse  <br> <br>
         Klassekode <br>
         <input value="" type="text" name="klassekode" id="klassekode"  onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onkeyup="this.value = this.value.toUpperCase();"/> <br>
+               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onchange="this.value = this.value.toUpperCase();"/> <br>
 
         Klassenavn <br>
         <input value="" type="text" name="klassenavn" id="klassenavn"   onFocus="fokus(this)"
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"  />
+
+        <br>
+        <br>
 
 
         <input value="Registrer Klasse" type="submit" name="submit" id="submit" >
@@ -58,6 +61,45 @@
 
 <div id="melding"></div>
 
-<php>
+<?php
 
-</php>
+    error_reporting (E_ALL ^ E_NOTICE);
+
+    $myfile = "./klasse.txt";
+
+    $klassekode= $_POST["klassekode"];
+    $klassenavn= $_POST["klassenavn"];
+
+    $lovligklassenavn=true;
+    $lovligKlassekode=true;
+
+    if(!$klassenavn){
+        print("Klassenavn er ikke fylt ut");
+    }
+
+    if(!$klassekode){
+        $lovligKlassekode=false;
+        print("Klassekode er ikke fylt ut");
+    }
+    else if (strlen($klassekode)!=3){
+        $lovligKlassekode=false;
+        print("Klassekode er ikke tre tegn");
+    }
+
+    if($lovligKlassekode && $lovligklassenavn){
+
+       $filehandler = "a";
+
+       $line = $klassekode . ";" . $klassenavn . ";" ."\n";
+
+       $file = fopen($myfile, $filehandler);
+
+       fwrite($file,$line);
+
+       fclose($file);
+
+    }
+
+
+
+?>
