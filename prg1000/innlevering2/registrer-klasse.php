@@ -48,6 +48,9 @@
         <input value="" type="text" name="klassenavn" id="klassenavn"   onFocus="fokus(this)"
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"  />
 
+        <br>
+        <br>
+
 
         <input value="Registrer Klasse" type="submit" name="submit" id="submit" >
         <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()">

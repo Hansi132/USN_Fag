@@ -24,6 +24,17 @@ body{
 
 }
 
+.forms #reset {
+    padding: 8px;
+    margin-top: 10px;
+    border: 0;
+    color: #ffffff;
+    background-color: #2865bb;
+    padding: 10px;
+    margin-right: 100%;
+
+}
+
 .container{
     width: 80%;
     margin: auto;
@@ -99,12 +110,6 @@ header a:hover{
 }
 
 
-.form #submit{
-    border: 0;
-    color: #ffffff;
-    background-color: #2865bb;
-    padding: 10px;
-}
 
 
 /* Showcase */
@@ -113,6 +118,28 @@ header a:hover{
     text-align: center;
     color: black;
     background-size: auto;
+
+}
+
+#showcase .form #submit {
+    padding: 8px;
+    margin-top: 10px;
+    border: 0;
+    color: #ffffff;
+    background-color: #2865bb;
+    padding: 10px;
+    align-self: center;
+
+}
+
+#showcase .form #reset {
+    padding: 8px;
+    margin-top: 10px;
+    border: 0;
+    color: #ffffff;
+    background-color: #2865bb;
+    padding: 10px;
+    align-self: center;
 
 }
 
