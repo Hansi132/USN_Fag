@@ -37,7 +37,7 @@
 
 <section id="showcase">
 
-    <form class="form" method="POST" name="forms" onsubmit="return validate1()" action="registrer-student.php">
+    <form class="form" method="POST" name="forms" onsubmit="return validateStudent()" action="registrer-student.php">
 
         Registrer student <br> <br>
         Fornavn <br>
@@ -51,7 +51,7 @@
         <br> Klassekode <br>
         <input type="text" value="" name="klassekode" id="klassekode" onFocus="fokus(this)"
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"
-               onkeyup ="visOppgaver(this.value); this.value = this.value.toUpperCase();"
+               onchange="visOppgaver(this.value); this.value = this.value.toUpperCase();"
         />
         <br> Brukernavn <br>
         <input type="text" value="" name="brukernavn" id="brukernavn" onFocus="fokus(this)"
@@ -72,6 +72,8 @@
 <div id="melding"></div>
 
 <?php
+
+    error_reporting (E_ALL ^ E_NOTICE);
 
     $myfile = "./student.txt";
 
@@ -96,6 +98,7 @@ else if (strlen($klassekode)!=3){
 }
 
 if(!$fornavn || !$etternavn || !$brukernavn){
+    $lovligKlassekode=false;
     print("Alle felt er ikke fylt ut");
 }
 

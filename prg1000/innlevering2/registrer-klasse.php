@@ -36,13 +36,13 @@
 </header>
 
 <section id="showcase">
-    <form class="form" method="POST" id="registrerFagSkjema" action="registrer-klasse.php" name="registrerFagSkjema"  onSubmit="return validate()">
+    <form class="form" method="POST" id="registrerFagSkjema" action="registrer-klasse.php" name="registrerFagSkjema"  onSubmit="return validateClass()">
 
 
         Registrer klasse  <br> <br>
         Klassekode <br>
         <input value="" type="text" name="klassekode" id="klassekode"  onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onkeyup="this.value = this.value.toUpperCase();"/> <br>
+               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onchange="this.value = this.value.toUpperCase();"/> <br>
 
         Klassenavn <br>
         <input value="" type="text" name="klassenavn" id="klassenavn"   onFocus="fokus(this)"
@@ -59,6 +59,8 @@
 <div id="melding"></div>
 
 <?php
+
+    error_reporting (E_ALL ^ E_NOTICE);
 
     $myfile = "./klasse.txt";
 
