@@ -10,7 +10,8 @@ function visOppgaver(klassekode)
     {
         if (foresporsel.readyState==4 && foresporsel.status==200)  /* responsen er fullført og vellykket */
             {
-                document.getElementById("melding1").innerHTML=foresporsel.responseText;/* responsteksten legges i meldingsfeltet */
+                document.getElementById("melding1").innerHTML="Følgende personer er i denne klassen:\n";
+                document.getElementById("melding2").innerHTML=foresporsel.responseText;/* responsteksten legges i meldingsfeltet */
             }
         }
 

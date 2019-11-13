@@ -18,8 +18,10 @@ while ($linje = fgets ($fil))  /* en linje lest fra fil */
             $fornavn=trim($del[1]); /* oppgavenr hentet ut */
             $etternavn=trim($del[2]);
             $klassekode=trim($del[3]);/* frist hentet ut */
+
             if ($angittFagkode==$klassekode )  /* fagkode finnes på fil */
-                {print ("<tr> <td> $brukernavn $fornavn $etternavn $klassekode </td> </tr>");  /* ny rad skrevet */
+                {
+                    print ("<tr> <td> $brukernavn $fornavn $etternavn $klassekode </td> </tr>");  /* ny rad skrevet */
                 }
         }
 }

@@ -71,6 +71,10 @@
 
 <div id="melding"></div>
 
+<div id="melding1"></div>
+
+<div id="melding2"></div>
+
 <?php
 
     error_reporting (E_ALL ^ E_NOTICE);
