@@ -35,9 +35,26 @@
 </header>
 
 <section id="showcase">
-    <p id="text">Hei og velkommen til min innlevering2</p>
+    <p id="text">Vis alle studenter</p>
 </section>
 
-<php>
+<?php
 
-</php>
+$myfile = "./student.txt";
+$handler = fopen($myfile, 'r');
+
+while(!feof($handler)){
+    $line = fgets($handler);
+    $class = explode(";", $line);
+
+    foreach($class as $value){
+        echo $value . "<br>";
+    }
+}
+
+fclose($handler);
+
+
+
+
+?>

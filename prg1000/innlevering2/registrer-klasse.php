@@ -58,6 +58,43 @@
 
 <div id="melding"></div>
 
-<php>
+<?php
 
-</php>
+    $myfile = "./klasse.txt";
+
+    $klassekode= $_POST["klassekode"];
+    $klassenavn= $_POST["klassenavn"];
+
+    $lovligklassenavn=true;
+    $lovligKlassekode=true;
+
+    if(!$klassenavn){
+        print("Klassenavn er ikke fylt ut");
+    }
+
+    if(!$klassekode){
+        $lovligKlassekode=false;
+        print("Klassekode er ikke fylt ut");
+    }
+    else if (strlen($klassekode)!=3){
+        $lovligKlassekode=false;
+        print("Klassekode er ikke tre tegn");
+    }
+
+    if($lovligKlassekode && $lovligklassenavn){
+
+       $filehandler = "a";
+
+       $line = $klassekode . ";" . $klassenavn . ";" ."\n";
+
+       $file = fopen($myfile, $filehandler);
+
+       fwrite($file,$line);
+
+       fclose($file);
+
+    }
+
+
+
+?>

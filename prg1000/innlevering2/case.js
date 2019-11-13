@@ -11,5 +11,38 @@ function musInn(element){
 
     if (element==document.getElementById("klassekode")){
         document.getElementById("melding").innerHTML="Klassekode should be two letters and one number.";
+
     }
+
+    if (element==document.getElementById("klassenavn")){
+        document.getElementById("melding").innerHTML="You have to give the class a name";
+    }
+
+    if (element==document.getElementById("fornavn")){
+        document.getElementById("melding").innerHTML="You should put a first name";
+    }
+
+    if (element==document.getElementById("etternavn")){
+        document.getElementById("melding").innerHTML="You should put a last name";
+    }
+
+    if (element==document.getElementById("brukernavn")){
+        document.getElementById("melding").innerHTML="You should put a  username";
+    }
+
+
+
+
+}
+
+
+function musUt(){
+    document.getElementById("melding").innerHTML="";
+}
+
+
+function fjernMelding()
+
+{
+    document.getElementById("melding").innerHTML="";
 }
