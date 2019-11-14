@@ -2,3 +2,5 @@ gb;Geir;Bjarvin;IT1;
 mj;Marius;Johannessen;IT1;
 sm;Shegaw;Mengiste;IT2;
 hk;Hans;Markeseth;IT3;
+sm;Shegaw;Mengiste;IT2;
+hk;Hans;Markeseth;IT3;
