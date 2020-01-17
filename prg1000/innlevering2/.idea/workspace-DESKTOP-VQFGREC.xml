@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="37a8ed6c-7310-433b-97a9-c6973c90ef90" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../web1100/Assignment no. 1/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../web1100/Assignment no. 1/products.html" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="54a8ce887768681053872e2ae3498092d0cb106c" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\hansk\OneDrive\USN_Fag\prg1000\innlevering1\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectId" id="1PjoluhZ6JlIUErFDgjQQSJZHnf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.registrer-klasse.php">
+    <configuration name="registrer-klasse.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/innlevering1/registrer-klasse.php" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="vis-alle-studenter.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/innlevering1/vis-alle-studenter.php" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="ajax.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="ajax.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="ajaxsok.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/ajaxsok.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="vis-klasseliste.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/vis-klasseliste.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.ajax.js" />
+        <item itemvalue="JavaScript Debug.registrer-klasse.php" />
+        <item itemvalue="JavaScript Debug.vis-alle-studenter.php" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="37a8ed6c-7310-433b-97a9-c6973c90ef90" name="Default Changelist" comment="" />
+      <created>1566397020982</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1566397020982</updated>
+      <workItem from="1566397022201" duration="1428000" />
+      <workItem from="1566398456007" duration="3033000" />
+      <workItem from="1566406962214" duration="4508000" />
+      <workItem from="1566416113357" duration="107000" />
+      <workItem from="1566416282915" duration="8144000" />
+      <workItem from="1566476781910" duration="3424000" />
+      <workItem from="1566570401119" duration="5519000" />
+      <workItem from="1567011092558" duration="612000" />
+      <workItem from="1568190913407" duration="11000" />
+      <workItem from="1569415617203" duration="3139000" />
+      <workItem from="1569868527091" duration="2205000" />
+      <workItem from="1570033371222" duration="3355000" />
+      <workItem from="1570043470960" duration="1636000" />
+      <workItem from="1573560732108" duration="7556000" />
+      <workItem from="1573668044781" duration="11410000" />
+      <workItem from="1573727588264" duration="243000" />
+      <workItem from="1573728015341" duration="55000" />
+    </task>
+    <task id="LOCAL−00001" summary="Added Innlevering 1">
+      <created>1566397196460</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1566397196460</updated>
+    </task>
+    <task id="LOCAL−00002" summary="Added Innlevering 1">
+      <created>1566397975741</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1566397975741</updated>
+    </task>
+    <task id="LOCAL−00003" summary="Added Innlevering 1">
+      <created>1566398398309</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1566398398309</updated>
+    </task>
+    <task id="LOCAL−00004" summary="Added Innlevering 1">
+      <created>1566398551346</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1566398551346</updated>
+    </task>
+    <task id="LOCAL−00005" summary="Added Innlevering 1">
+      <created>1566398598379</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1566398598379</updated>
+    </task>
+    <task id="LOCAL−00006" summary="Test">
+      <created>1566398646456</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1566398646456</updated>
+    </task>
+    <task id="LOCAL−00007" summary="Test">
+      <created>1566398977902</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1566398977902</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Innlevering 1" />
+    <MESSAGE value="Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test" />
+  </component>
+</project>

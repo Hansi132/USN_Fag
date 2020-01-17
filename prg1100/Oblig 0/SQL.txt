@@ -1,0 +1,38 @@
+CREATE TABLE KLASSE (
+    klassekode char(3) not null,
+    klassenavn varchar(50) not null,
+    studiumkode char(4) not null,
+PRIMARY KEY (klassekode)
+);
+
+insert into KLASSE value ('IT1', 'IT og informasjonssystemer 1. år', 'ITIS');
+insert into KLASSE value ('IT2', 'IT og informasjonssystemer 2. år', 'ITIS');
+insert into KLASSE value ('IT3', 'IT og informasjonssystemer 3. år', 'ITIS');
+
+CREATE TABLE BILDE (
+    bildenr char(3) NOT NULL,
+    opplastingsdato date not null,
+    filnavn varchar(50) not null,
+    beskrivelse varchar(255),
+    PRIMARY KEY (bildenr)
+
+);
+
+insert into BILDE value ('001', '2020-03-01', 'tb.jpg', 'lott bilde av Tove');
+insert into BILDE value ('002', '2020-04-01', 'gb.jpg', 'grusomt bilde av Geir');
+insert into BILDE value ('003', '2020-04-15', 'mj.jpg', 'Marius i solnedgang');
+
+CREATE TABLE STUDENT (
+  brukernavn varchar(4) not null,
+  fornavn varchar(50) not null ,
+  etternavn varchar(50) not null ,
+  klassekode char(3) not null ,
+  bildenr char(3) not null ,
+  PRIMARY KEY (brukernavn),
+  FOREIGN KEY (klassekode) REFERENCES KLASSE(klassekode),
+  FOREIGN KEY (bildenr) REFERENCES BILDE(bildenr)
+);
+
+insert into STUDENT value ('gb', 'Geir', 'Bjarvin', 'IT1', '002');
+insert into STUDENT value ('mrj', 'Marius R.', 'Johannesen', 'IT1', '003');
+insert into STUDENT value ('tb', 'Tove', 'Bøe', 'IT2', '001');
