@@ -10,6 +10,7 @@ function validateClass(){
         feilmelding = "Studiumkode er ikke fylt ut";
         document.getElementById("melding").style.color="#FF0000";
         document.getElementById("melding").innerHTML = feilmelding;
+        return false;
     }
 
     if(klassekode.value.trim()=="") {
