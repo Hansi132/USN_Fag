@@ -27,8 +27,7 @@
                 <li class="current"><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-klasseliste.php">vis klasseliste</a><li>
-                <li><a href="klasse.txt">Klasse.txt</a><li>
-                <li><a href="student.txt">Student.txt</a><li>
+
             </ul>
         </nav>
     </div>
@@ -40,18 +39,26 @@
 
 <?php
 
-$myfile = "./klasse.txt";
-$handler = fopen($myfile, 'r');
+$servername = "localhost";
+$username = "233569";
+$password = "233569";
+$dbname = "233569";
 
-while(!feof($handler)){
-    $line = fgets($handler);
-    $class = explode(";", $line);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-    foreach($class as $value){
-        echo $value . "<br>";
-    }
+if(!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
-fclose($handler);
+    $sql = "SELECT * FROM klasse";
+
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_assoc($result)){
+            echo "Klassekode: " . $row["klassekode"] . " Klassenavn: " . $row["klassenavn"] . " Studiumkode: " . $row["studiumkode"] . "<br>";
+        }
+    }
+
 
 ?>

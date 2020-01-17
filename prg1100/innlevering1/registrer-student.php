@@ -28,8 +28,6 @@
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-klasseliste.php">vis klasseliste</a><li>
-                <li><a href="klasse.txt">Klasse.txt</a><li>
-                <li><a href="student.txt">Student.txt</a><li>
             </ul>
         </nav>
     </div>
@@ -82,7 +80,6 @@
 
     error_reporting (E_ALL ^ E_NOTICE);
 
-    $myfile = "./student.txt";
 
     $fornavn = $_POST["fornavn"];
     $etternavn = $_POST["etternavn"];
@@ -111,15 +108,7 @@ if(!$fornavn || !$etternavn || !$brukernavn){
 
 if($lovligKlassekode && $lovligfornavn && $lovligetternavn && $lovligbrukernavn){
 
-    $filehandler = "a";
 
-    $line = $brukernavn . ";" . $fornavn . ";" . $etternavn . ";" . $klassekode . ";" . "\n";
-
-    $file = fopen($myfile, $filehandler);
-
-    fwrite($file,$line);
-
-    fclose($file);
 
 }
 

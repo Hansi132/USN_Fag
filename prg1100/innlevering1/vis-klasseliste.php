@@ -28,8 +28,7 @@
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li class="current"><a href="vis-klasseliste.php">vis klasseliste</a><li>
-                <li><a href="klasse.txt">Klasse.txt</a><li>
-                <li><a href="student.txt">Student.txt</a><li>
+
             </ul>
         </nav>
     </div>
@@ -66,27 +65,15 @@ if(!$post){
     print("Du har ikke fylt ut riktig søk");
 }
 
-$filnavn = "./student.txt";
 
-$fil = fopen($filnavn, "r");
+
 
 if ($lovligsok) {
 
-    while ($linje = fgets($fil)) {
-        if ($linje != "") {
-            $del = explode(";", $linje);
-            $brukernavn = trim($del[0]);
-            $fornavn = trim($del[1]);
-            $etternavn = trim($del[2]);
-            $klasse = trim($del[3]);
 
-            if (strtoupper($search) == strtoupper($klasse)) {
-                print("$brukernavn $fornavn $etternavn $klasse <br>");
-            }
 
-        }
-    }
+
 }
-fclose($fil);
+
 
 ?>

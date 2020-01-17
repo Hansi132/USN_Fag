@@ -27,8 +27,7 @@
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li class="current"><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-klasseliste.php">vis klasseliste</a><li>
-                <li><a href="klasse.txt">Klasse.txt</a><li>
-                <li><a href="student.txt">Student.txt</a><li>
+
             </ul>
         </nav>
     </div>
@@ -40,19 +39,10 @@
 
 <?php
 
-$myfile = "./student.txt";
-$handler = fopen($myfile, 'r');
 
-while(!feof($handler)){
-    $line = fgets($handler);
-    $class = explode(";", $line);
 
-    foreach($class as $value){
-        echo $value . "<br>";
-    }
-}
 
-fclose($handler);
+
 
 
 
