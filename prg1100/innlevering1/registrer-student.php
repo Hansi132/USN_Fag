@@ -25,6 +25,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="registrer-klasse.php">Registrer Klasse</a></li>
                 <li class="current"><a href="registrer-student.php">Registrer Student</a></li>
+                <li><a href="registrer-bilde.php">Registrer bilde</a></li>
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-klasseliste.php">vis klasseliste</a><li>
@@ -46,6 +47,8 @@
         <input type="text" value="" name="etternavn" id="etternavn" onFocus="fokus(this)"
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"
         />
+
+
         <br> Klassekode <br>
         <input type="text" value="" name="klassekode" id="klassekode" onFocus="fokus(this)"
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"
@@ -53,6 +56,11 @@
         />
         <br> Brukernavn <br>
         <input type="text" value="" name="brukernavn" id="brukernavn" onFocus="fokus(this)"
+               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"
+        />
+
+        <br> Bildenr <br>
+        <input type="text" value="" name="bildenr" id="bildenr" onFocus="fokus(this)"
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"
         />
 
@@ -85,6 +93,7 @@
     $etternavn = $_POST["etternavn"];
     $brukernavn = $_POST["brukernavn"];
     $klassekode = $_POST["klassekode"];
+    $bildenr = $_POST["bildenr"];
 
     $lovligKlassekode = true;
     $lovligfornavn = true;
@@ -108,7 +117,19 @@ if(!$fornavn || !$etternavn || !$brukernavn){
 
 if($lovligKlassekode && $lovligfornavn && $lovligetternavn && $lovligbrukernavn){
 
+    //issue make the klassekode and bildenr be dynamic list
 
+//sql query goes here
+    $sql = "insert into student value ('$brukernavn', ' $fornavn', '$etternavn', '$klassekode', '$bildenr');";
+
+    if(mysqli_query($conn, $sql)){
+        echo "New record inserted";
+    }
+    else {
+        return;
+    }
+
+    mysqli_close($conn);
 
 }
 

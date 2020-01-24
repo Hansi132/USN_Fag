@@ -24,6 +24,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="registrer-klasse.php">Registrer Klasse</a></li>
                 <li><a href="registrer-student.php">Registrer Student</a></li>
+                <li><a href="registrer-bilde.php">Registrer bilde</a></li>
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li class="current"><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-klasseliste.php">vis klasseliste</a><li>
@@ -39,6 +40,27 @@
 
 <?php
 
+
+$servername = "localhost";
+$username = "233569";
+$password = "233569";
+$dbname = "233569";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if(!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT * FROM student";
+
+$result = mysqli_query($conn, $sql);
+
+if(mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)){
+        echo "Brukernavn: " . $row["brukernavn"] . " Fornavn: " . $row["fornavn"] . " Etternavn: " . $row["etternavn"] . " Klassekode: " . $row["klassekode"] . " Bildenr: " . $row["bildenr"] . "<br>";
+    }
+}
 
 
 

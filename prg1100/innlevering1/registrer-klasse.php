@@ -25,6 +25,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li class="current"><a href="registrer-klasse.php">Registrer Klasse</a></li>
                 <li><a href="registrer-student.php">Registrer Student</a></li>
+                <li><a href="registrer-bilde.php">Registrer bilde</a></li>
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-klasseliste.php">vis klasseliste</a><li>
@@ -46,9 +47,9 @@
         <input value="" type="text" name="klassenavn" id="klassenavn"   onFocus="fokus(this)"
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"/> <br>
 
-        Studiumkode <br>
-        <input value="" type="text" name="studiekode" id="studiekode"   onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"/>
+        Studiekode <br>
+        <input value="" type="text" name="studiekode" id="studiekode"  onFocus="fokus(this)"
+               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onchange="this.value = this.value.toUpperCase();"/> <br>
 
         <br>
         <br>
@@ -88,9 +89,16 @@
 
     $lovligklassenavn=true;
     $lovligKlassekode=true;
+    $lovligStudiekode = true;
+
+    if(!$studiekode){
+        print("Studiekode er ikke fylt ut");
+        $lovligStudiekode = false;
+    }
 
     if(!$klassenavn){
         print("Klassenavn er ikke fylt ut");
+        $lovligklassenavn = false;
     }
 
     if(!$klassekode){
@@ -102,7 +110,20 @@
         print("Klassekode er ikke tre tegn");
     }
 
-    if($lovligKlassekode && $lovligklassenavn){
+    $exists = mysqli_query($conn, "SELECT * FROM klasse WHERE klassekode = '$klassekode'");
+    if(mysqli_num_rows($exists) > 0 ) {
+        print("This value already exist");
+        return;
+    }
+
+
+
+
+    if($lovligKlassekode && $lovligklassenavn && $lovligStudiekode){
+
+
+
+
 
         //sql query goes here
          $sql = "insert into KLASSE value ('$klassekode', ' $klassenavn', '$studiekode');";
@@ -111,7 +132,7 @@
              echo "New record inserted";
          }
          else {
-             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+             return;
          }
 
          mysqli_close($conn);

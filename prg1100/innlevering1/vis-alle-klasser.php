@@ -24,6 +24,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="registrer-klasse.php">Registrer Klasse</a></li>
                 <li><a href="registrer-student.php">Registrer Student</a></li>
+                <li><a href="registrer-bilde.php">Registrer bilde</a></li>
                 <li class="current"><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-klasseliste.php">vis klasseliste</a><li>
