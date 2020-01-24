@@ -28,7 +28,7 @@
                 <li class="current"><a href="registrer-bilde.php">Registrer bilde</a></li>
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
-                <li><a href="vis-klasseliste.php">vis klasseliste</a><li>
+                <li><a href="vis-alle-bilder.php">Vis bilder</a></li>
 
             </ul>
         </nav>
@@ -71,20 +71,44 @@
 
 <?php
 
+
+
     $servername = "localhost";
     $username = "233569";
     $password = "233569";
     $dbname = "233569";
 
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+    if(!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    error_reporting (E_ALL ^ E_NOTICE);
+
+
     $bildenr = $_POST["bildenr"];
     $opplastingsdato = $_POST["opplastingsdato"];
     $filnavn = $_POST["filnavn"];
-    $beskrivelse = $_POST["beskrivelse"]
+    $beskrivelse = $_POST["beskrivelse"];
+
+    $exists = mysqli_query($conn, "SELECT * FROM bilde WHERE bildenr = '$bildenr'");
+    if(mysqli_num_rows($exists) > 0 ) {
+        print("This value already exist");
+        return;
+}
 
 
+    $sql = "insert into bilde value ('$bildenr', ' $opplastingsdato', '$filnavn', '$beskrivelse');";
 
+    if(mysqli_query($conn, $sql)){
+        echo "New record inserted";
+    }
+    else {
+        return;
+    }
 
-
+    mysqli_close($conn);
 
 
 ?>
