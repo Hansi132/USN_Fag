@@ -59,7 +59,7 @@
 
 
         <input type="submit" name="submit" id="submit" value="Slett student" "/>
-        <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()" >
+
 
 
     </form>

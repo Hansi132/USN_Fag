@@ -62,7 +62,7 @@
 
 
         <input value="Slett Bilde" type="submit" name="submit" id="submit" >
-        <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()">
+
 
 
     </form>

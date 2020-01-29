@@ -55,7 +55,7 @@
 
 
         <input value="Slett Klasse" type="submit" name="submit" id="submit">
-        <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()">
+
 
 
     </form>

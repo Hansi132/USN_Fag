@@ -30,7 +30,7 @@
                 <li><a href="endre-student.php">Endre Student</a></li>
                 <li><a href="slett-student.php">Slett Student</a></li>
                 <li><a href="registrer-bilde.php">Registrer bilde</a></li>
-                <li class="current"><a href="endre-bilde.php">Endre bilde</a></li>
+                <li><a href="endre-bilde.php">Endre bilde</a></li>
                 <li><a href="slett-bilde.php">Slett bilde</a></li>
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
@@ -45,7 +45,7 @@
     <form class="form" method="POST" id="endreFagSkjema" action="endre-klasse.php" name="endreFagSkjema"  onSubmit="return validateClass()">
 
 
-        Registrer klasse  <br> <br>
+        Endre klasse  <br> <br>
         Klassekode <br>
         <select name="klassekode" id="klassekode">
             <?php include_once("dynamicfunctions.php"); dynamicBoxFagkode(); ?>
