@@ -40,18 +40,13 @@
 
 <?php
 
-$servername = "localhost";
-$username = "233569";
-$password = "233569";
-$dbname = "233569";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+include("dbconnection.php");
 
 if(!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-    $sql = "SELECT * FROM klasse";
+    $sql = "SELECT * FROM KLASSE";
 
     $result = mysqli_query($conn, $sql);
 

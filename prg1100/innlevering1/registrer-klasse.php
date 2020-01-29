@@ -66,12 +66,7 @@
 
 <?php
 
-    $servername = "localhost";
-    $username = "233569";
-    $password = "233569";
-    $dbname = "233569";
-
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    include("dbconnection.php");
 
     if(!$conn) {
         die("Connection failed: " . mysqli_connect_error());
@@ -110,7 +105,7 @@
         print("Klassekode er ikke tre tegn");
     }
 
-    $exists = mysqli_query($conn, "SELECT * FROM klasse WHERE klassekode = '$klassekode'");
+    $exists = mysqli_query($conn, "SELECT * FROM KLASSE WHERE klassekode = '$klassekode'");
     if(mysqli_num_rows($exists) > 0 ) {
         print("This value already exist");
         return;

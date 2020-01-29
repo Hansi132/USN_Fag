@@ -73,12 +73,7 @@
 
 
 
-    $servername = "localhost";
-    $username = "233569";
-    $password = "233569";
-    $dbname = "233569";
-
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    include("dbconnection.php");
 
     if(!$conn) {
         die("Connection failed: " . mysqli_connect_error());
@@ -92,14 +87,14 @@
     $filnavn = $_POST["filnavn"];
     $beskrivelse = $_POST["beskrivelse"];
 
-    $exists = mysqli_query($conn, "SELECT * FROM bilde WHERE bildenr = '$bildenr'");
+    $exists = mysqli_query($conn, "SELECT * FROM BILDE WHERE bildenr = '$bildenr'");
     if(mysqli_num_rows($exists) > 0 ) {
         print("This value already exist");
         return;
 }
 
 
-    $sql = "insert into bilde value ('$bildenr', ' $opplastingsdato', '$filnavn', '$beskrivelse');";
+    $sql = "insert into BILDE value ('$bildenr', ' $opplastingsdato', '$filnavn', '$beskrivelse');";
 
     if(mysqli_query($conn, $sql)){
         echo "New record inserted";

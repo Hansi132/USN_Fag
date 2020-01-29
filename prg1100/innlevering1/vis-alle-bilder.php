@@ -40,18 +40,15 @@
 
 <?php
 
-$servername = "localhost";
-$username = "233569";
-$password = "233569";
-$dbname = "233569";
+include("dbconnection.php");
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+
 
 if(!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM bilde";
+$sql = "SELECT * FROM BILDE";
 
 $result = mysqli_query($conn, $sql);
 

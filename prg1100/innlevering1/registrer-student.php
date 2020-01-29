@@ -50,19 +50,20 @@
 
 
         <br> Klassekode <br>
-        <input type="text" value="" name="klassekode" id="klassekode" onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"
-               onchange="visOppgaver(this.value); this.value = this.value.toUpperCase();"
-        />
+        <select name="klassekode" id="klassekode">
+            <?php include_once("dynamicfunctions.php"); dynamicBoxFagkode(); ?>
+        </select>
+
         <br> Brukernavn <br>
         <input type="text" value="" name="brukernavn" id="brukernavn" onFocus="fokus(this)"
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"
         />
 
+
         <br> Bildenr <br>
-        <input type="text" value="" name="bildenr" id="bildenr" onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"
-        />
+        <select name="bildenr" id="bildenr" >
+            <?php include_once("dynamicfunctions.php"); dynamicBoxBildenr(); ?>
+        </select>
 
         <br>
         <br>
@@ -85,6 +86,8 @@
 <div id="melding2"></div>
 
 <?php
+
+    include("dbconnection.php");
 
     error_reporting (E_ALL ^ E_NOTICE);
 
@@ -115,17 +118,18 @@ if(!$fornavn || !$etternavn || !$brukernavn){
     print("Alle felt er ikke fylt ut");
 }
 
-if($lovligKlassekode && $lovligfornavn && $lovligetternavn && $lovligbrukernavn){
+if($lovligfornavn && $lovligetternavn && $lovligbrukernavn){
 
     //issue make the klassekode and bildenr be dynamic list
 
 //sql query goes here
-    $sql = "insert into student value ('$brukernavn', ' $fornavn', '$etternavn', '$klassekode', '$bildenr');";
+    $sql = "insert into STUDENT value ('$brukernavn', ' $fornavn', '$etternavn', '$klassekode', '$bildenr');";
 
     if(mysqli_query($conn, $sql)){
         echo "New record inserted";
     }
     else {
+
         return;
     }
 
