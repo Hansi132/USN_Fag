@@ -42,74 +42,107 @@
 </header>
 
 <section id="showcase">
-    <form class="form" method="POST" id="registrerBildeSkjema" action="registrer-bilde.php" name="registrerBildeSkjema"  onSubmit="return validateBilde()">
+
+    <form class="form" method="POST" name="forms" onsubmit="return validateStudent()" action="endre-student.php">
+
+        Endre student <br> <br>
+        Fornavn <br>
+        <input type="text" value="" name="fornavn" id="fornavn" onFocus="fokus(this)"
+               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"
+        />
+        <br> Etternavn <br>
+        <input type="text" value="" name="etternavn" id="etternavn" onFocus="fokus(this)"
+               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()"
+        />
 
 
-        Registrer bilde  <br> <br>
-        bildenr <br>
-        <input value="" type="text" name="bildenr" id="bildenr"  onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
+        <br> Klassekode <br>
+        <select name="klassekode" id="klassekode">
+            <?php include_once("dynamicfunctions.php"); dynamicBoxFagkode(); ?>
+        </select>
 
-        Opplastingsdato <br>
-        <input value="" type="date" name="opplastingsdato" id="opplastingsdato"   onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
+        <br> Brukernavn <br>
+        <select name="brukernavn" id="brukernavn">
+            <?php include_once("dynamicfunctions.php"); dynamicBoxBrukernavn(); ?>
+        </select>
 
-        Filnavn <br>
-        <input value="" type="text" name="filnavn" id="filnavn"   onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
 
-        Beskrivelse <br>
-        <input value="" type="text" name="beskrivelse" id="beskrivelse"  onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
+        <br> Bildenr <br>
+        <select name="bildenr" id="bildenr" >
+            <?php include_once("dynamicfunctions.php"); dynamicBoxBildenr(); ?>
+        </select>
 
         <br>
         <br>
 
 
-        <input value="Registrer Bilde" type="submit" name="submit" id="submit" >
-        <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()">
+
+
+        <input type="submit" name="submit" id="submit" value="Endre student"/>
+        <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()" >
 
 
     </form>
+
 </section>
 
 <div id="melding"></div>
 
+<div id="melding1"></div>
+
+<div id="melding2"></div>
+
 <?php
 
-
-
 include("dbconnection.php");
-
-if(!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
 
 error_reporting (E_ALL ^ E_NOTICE);
 
 
+$fornavn = $_POST["fornavn"];
+$etternavn = $_POST["etternavn"];
+$brukernavn = $_POST["brukernavn"];
+$klassekode = $_POST["klassekode"];
 $bildenr = $_POST["bildenr"];
-$opplastingsdato = $_POST["opplastingsdato"];
-$filnavn = $_POST["filnavn"];
-$beskrivelse = $_POST["beskrivelse"];
 
-$exists = mysqli_query($conn, "SELECT * FROM BILDE WHERE bildenr = '$bildenr'");
-if(mysqli_num_rows($exists) > 0 ) {
-    print("This value already exist");
-    return;
+$lovligKlassekode = true;
+$lovligfornavn = true;
+$lovligetternavn = true;
+$lovligbrukernavn = true;
+
+
+if(!$klassekode){
+    $lovligKlassekode=false;
+    print("Klassekode er ikke fylt ut");
+}
+else if (strlen($klassekode)!=3){
+    $lovligKlassekode=false;
+    print("Klassekode er ikke tre tegn");
+}
+
+if(!$fornavn || !$etternavn || !$brukernavn){
+    $lovligKlassekode=false;
+    print("Alle felt er ikke fylt ut");
+}
+
+if($lovligfornavn && $lovligetternavn && $lovligbrukernavn){
+
+    //issue make the klassekode and bildenr be dynamic list
+
+//sql query goes here
+    $sql = "UPDATE STUDENT SET fornavn = '$fornavn', etternavn = '$etternavn', klassekode = '$klassekode', bildenr = '$bildenr' WHERE brukernavn = '$brukernavn';";
+
+    if(mysqli_query($conn, $sql)){
+        print ("New record inserted");
+    }
+    else {
+
+        return;
+    }
+
+    mysqli_close($conn);
+
 }
 
 
-$sql = "insert into BILDE value ('$bildenr', ' $opplastingsdato', '$filnavn', '$beskrivelse');";
-
-if(mysqli_query($conn, $sql)){
-    echo "New record inserted";
-}
-else {
-    return;
-}
-
-mysqli_close($conn);
-
-
-?>
+?>?>

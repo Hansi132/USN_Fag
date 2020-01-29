@@ -23,15 +23,19 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
+
                 <li><a href="registrer-klasse.php">Registrer Klasse</a></li>
                 <li><a href="endre-klasse.php">Endre Klasse</a></li>
                 <li><a href="slett-klasse.php">Slett Klasse</a></li>
+
                 <li><a href="registrer-student.php">Registrer Student</a></li>
                 <li><a href="endre-student.php">Endre Student</a></li>
                 <li><a href="slett-student.php">Slett Student</a></li>
+
                 <li><a href="registrer-bilde.php">Registrer bilde</a></li>
-                <li ><a href="endre-bilde.php">Endre bilde</a></li>
+                <li><a href="endre-bilde.php">Endre bilde</a></li>
                 <li class="current"><a href="slett-bilde.php">Slett bilde</a></li>
+
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-alle-bilder.php">Vis bilder</a></li>
@@ -42,31 +46,21 @@
 </header>
 
 <section id="showcase">
-    <form class="form" method="POST" id="registrerBildeSkjema" action="registrer-bilde.php" name="registrerBildeSkjema"  onSubmit="return validateBilde()">
+    <form class="form" method="POST" id="slettBildeSkjema" action="slett-bilde.php" name="slettBildeSkjema"  onSubmit="return validateBilde()">
 
 
-        Registrer bilde  <br> <br>
+        Slett bilde  <br> <br>
         bildenr <br>
-        <input value="" type="text" name="bildenr" id="bildenr"  onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
+        <select name="bildenr" id="bildenr" >
+            <?php include_once("dynamicfunctions.php"); dynamicBoxBildenr(); ?>
+        </select><br>
 
-        Opplastingsdato <br>
-        <input value="" type="date" name="opplastingsdato" id="opplastingsdato"   onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
-
-        Filnavn <br>
-        <input value="" type="text" name="filnavn" id="filnavn"   onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
-
-        Beskrivelse <br>
-        <input value="" type="text" name="beskrivelse" id="beskrivelse"  onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
 
         <br>
         <br>
 
 
-        <input value="Registrer Bilde" type="submit" name="submit" id="submit" >
+        <input value="Slett Bilde" type="submit" name="submit" id="submit" >
         <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()">
 
 
@@ -93,17 +87,13 @@ $opplastingsdato = $_POST["opplastingsdato"];
 $filnavn = $_POST["filnavn"];
 $beskrivelse = $_POST["beskrivelse"];
 
-$exists = mysqli_query($conn, "SELECT * FROM BILDE WHERE bildenr = '$bildenr'");
-if(mysqli_num_rows($exists) > 0 ) {
-    print("This value already exist");
-    return;
-}
 
 
-$sql = "insert into BILDE value ('$bildenr', ' $opplastingsdato', '$filnavn', '$beskrivelse');";
+
+$sql = "DELETE FROM BILDE WHERE bildenr = '$bildenr'";
 
 if(mysqli_query($conn, $sql)){
-    echo "New record inserted";
+    echo "Record Deleted";
 }
 else {
     return;

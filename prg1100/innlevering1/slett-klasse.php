@@ -30,7 +30,7 @@
                 <li><a href="endre-student.php">Endre Student</a></li>
                 <li><a href="slett-student.php">Slett Student</a></li>
                 <li><a href="registrer-bilde.php">Registrer bilde</a></li>
-                <li ><a href="endre-bilde.php">Endre bilde</a></li>
+                <li><a href="endre-bilde.php">Endre bilde</a></li>
                 <li><a href="slett-bilde.php">Slett bilde</a></li>
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
@@ -42,31 +42,19 @@
 </header>
 
 <section id="showcase">
-    <form class="form" method="POST" id="registrerBildeSkjema" action="registrer-bilde.php" name="registrerBildeSkjema"  onSubmit="return validateBilde()">
+    <form class="form" method="POST" id="SlettFagSkjema" action="slett-klasse.php" name="SlettFagSkjema"  onSubmit="return validateClass()">
 
 
-        Registrer bilde  <br> <br>
-        bildenr <br>
-        <input value="" type="text" name="bildenr" id="bildenr"  onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
-
-        Opplastingsdato <br>
-        <input value="" type="date" name="opplastingsdato" id="opplastingsdato"   onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
-
-        Filnavn <br>
-        <input value="" type="text" name="filnavn" id="filnavn"   onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
-
-        Beskrivelse <br>
-        <input value="" type="text" name="beskrivelse" id="beskrivelse"  onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
-
-        <br>
-        <br>
+        Slett klasse  <br> <br>
+        Klassekode <br>
+        <select name="klassekode" id="klassekode">
+            <?php include_once("dynamicfunctions.php"); dynamicBoxFagkode(); ?>
+        </select> <br>
 
 
-        <input value="Registrer Bilde" type="submit" name="submit" id="submit" >
+
+
+        <input value="Slett Klasse" type="submit" name="submit" id="submit" >
         <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()">
 
 
@@ -74,6 +62,7 @@
 </section>
 
 <div id="melding"></div>
+
 
 <?php
 
@@ -85,31 +74,30 @@ if(!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+
+
+
 error_reporting (E_ALL ^ E_NOTICE);
 
 
-$bildenr = $_POST["bildenr"];
-$opplastingsdato = $_POST["opplastingsdato"];
-$filnavn = $_POST["filnavn"];
-$beskrivelse = $_POST["beskrivelse"];
-
-$exists = mysqli_query($conn, "SELECT * FROM BILDE WHERE bildenr = '$bildenr'");
-if(mysqli_num_rows($exists) > 0 ) {
-    print("This value already exist");
-    return;
-}
+$klassekode= $_POST["klassekode"];
 
 
-$sql = "insert into BILDE value ('$bildenr', ' $opplastingsdato', '$filnavn', '$beskrivelse');";
 
-if(mysqli_query($conn, $sql)){
-    echo "New record inserted";
-}
-else {
-    return;
-}
+    //sql query goes here
+    $sql = "DELETE FROM KLASSE WHERE klassekode = '$klassekode'";
 
-mysqli_close($conn);
+    if(mysqli_query($conn, $sql)){
+        echo "Record deleted";
+    }
+    else {
+        return;
+    }
+
+    mysqli_close($conn);
+
+
+
 
 
 ?>
