@@ -11,6 +11,7 @@
     <script src="ajax.js"> </script>
     <script src="valid.js"> </script>
     <script src="case.js"> </script>
+    <script src="functions.js"></script>
 
 
 </head>
@@ -18,7 +19,7 @@
 <header>
     <div class="container">
         <div id="branding">
-            <h1><span class="highlight">A</span>ssignment<span class="highlight">2</span></h1>
+            <h1><span class="highlight">A</span>ssignment<span class="highlight">1</span></h1>
         </div>
         <nav>
             <ul>
@@ -46,7 +47,7 @@
 </header>
 
 <section id="showcase">
-    <form class="form" method="POST" id="slettBildeSkjema" action="slett-bilde.php" name="slettBildeSkjema"  onSubmit="return validateBilde()">
+    <form class="form" method="POST" id="slettBildeSkjema" action="slett-bilde.php" name="slettBildeSkjema"  onSubmit="return confirm()">
 
 
         Slett bilde  <br> <br>

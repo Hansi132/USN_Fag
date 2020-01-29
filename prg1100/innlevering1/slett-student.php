@@ -18,7 +18,7 @@
 <header>
     <div class="container">
         <div id="branding">
-            <h1><span class="highlight">A</span>ssignment<span class="highlight">2</span></h1>
+            <h1><span class="highlight">A</span>ssignment<span class="highlight">1</span></h1>
         </div>
         <nav>
             <ul>
@@ -43,7 +43,7 @@
 
 <section id="showcase">
 
-    <form class="form" method="POST" name="forms" onsubmit="return validateStudent()" action="slett-student.php">
+    <form class="form" method="POST" name="forms" onsubmit="return confirm()" action="slett-student.php">
 
 
         <br> Brukernavn <br>
@@ -58,7 +58,7 @@
 
 
 
-        <input type="submit" name="submit" id="submit" value="Slett student"/>
+        <input type="submit" name="submit" id="submit" value="Slett student" "/>
         <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()" >
 
 

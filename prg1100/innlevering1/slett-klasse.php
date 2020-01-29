@@ -18,7 +18,7 @@
 <header>
     <div class="container">
         <div id="branding">
-            <h1><span class="highlight">A</span>ssignment<span class="highlight">2</span></h1>
+            <h1><span class="highlight">A</span>ssignment<span class="highlight">1</span></h1>
         </div>
         <nav>
             <ul>
@@ -42,7 +42,7 @@
 </header>
 
 <section id="showcase">
-    <form class="form" method="POST" id="SlettFagSkjema" action="slett-klasse.php" name="SlettFagSkjema"  onSubmit="return validateClass()">
+    <form class="form" method="POST" id="SlettFagSkjema" action="slett-klasse.php" name="SlettFagSkjema"  onSubmit="return confirm()">
 
 
         Slett klasse  <br> <br>
@@ -54,7 +54,7 @@
 
 
 
-        <input value="Slett Klasse" type="submit" name="submit" id="submit" >
+        <input value="Slett Klasse" type="submit" name="submit" id="submit">
         <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()">
 
 
