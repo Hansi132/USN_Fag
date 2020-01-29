@@ -23,19 +23,15 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-
                 <li><a href="registrer-klasse.php">Registrer Klasse</a></li>
                 <li><a href="endre-klasse.php">Endre Klasse</a></li>
                 <li><a href="slett-klasse.php">Slett Klasse</a></li>
-
                 <li><a href="registrer-student.php">Registrer Student</a></li>
-                <li><a href="endre-student.php">Endre Student</a></li>
+                <li class = "current"><a href="endre-student.php">Endre Student</a></li>
                 <li><a href="slett-student.php">Slett Student</a></li>
-
-                <li class="current"><a href="registrer-bilde.php">Registrer bilde</a></li>
-                <li><a href="endre-bilde.php">Endre bilde</a></li>
+                <li><a href="registrer-bilde.php">Registrer bilde</a></li>
+                <li ><a href="endre-bilde.php">Endre bilde</a></li>
                 <li><a href="slett-bilde.php">Slett bilde</a></li>
-
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-alle-bilder.php">Vis bilder</a></li>
@@ -83,37 +79,37 @@
 
 
 
-    include("dbconnection.php");
+include("dbconnection.php");
 
-    if(!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+if(!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
-    error_reporting (E_ALL ^ E_NOTICE);
+error_reporting (E_ALL ^ E_NOTICE);
 
 
-    $bildenr = $_POST["bildenr"];
-    $opplastingsdato = $_POST["opplastingsdato"];
-    $filnavn = $_POST["filnavn"];
-    $beskrivelse = $_POST["beskrivelse"];
+$bildenr = $_POST["bildenr"];
+$opplastingsdato = $_POST["opplastingsdato"];
+$filnavn = $_POST["filnavn"];
+$beskrivelse = $_POST["beskrivelse"];
 
-    $exists = mysqli_query($conn, "SELECT * FROM BILDE WHERE bildenr = '$bildenr'");
-    if(mysqli_num_rows($exists) > 0 ) {
-        print("This value already exist");
-        return;
+$exists = mysqli_query($conn, "SELECT * FROM BILDE WHERE bildenr = '$bildenr'");
+if(mysqli_num_rows($exists) > 0 ) {
+    print("This value already exist");
+    return;
 }
 
 
-    $sql = "insert into BILDE value ('$bildenr', ' $opplastingsdato', '$filnavn', '$beskrivelse');";
+$sql = "insert into BILDE value ('$bildenr', ' $opplastingsdato', '$filnavn', '$beskrivelse');";
 
-    if(mysqli_query($conn, $sql)){
-        echo "New record inserted";
-    }
-    else {
-        return;
-    }
+if(mysqli_query($conn, $sql)){
+    echo "New record inserted";
+}
+else {
+    return;
+}
 
-    mysqli_close($conn);
+mysqli_close($conn);
 
 
 ?>

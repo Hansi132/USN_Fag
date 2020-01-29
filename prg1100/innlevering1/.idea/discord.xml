@@ -2,6 +2,7 @@
 <project version="4">
   <component name="DiscordProjectSettings">
     <option name="show" value="true" />
+    <option name="description" value="Small project to register students images and classes with databases." />
   </component>
   <component name="ProjectNotificationSettings">
     <option name="askShowProject" value="false" />

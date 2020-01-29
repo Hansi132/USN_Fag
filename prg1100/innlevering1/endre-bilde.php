@@ -32,8 +32,8 @@
                 <li><a href="endre-student.php">Endre Student</a></li>
                 <li><a href="slett-student.php">Slett Student</a></li>
 
-                <li class="current"><a href="registrer-bilde.php">Registrer bilde</a></li>
-                <li><a href="endre-bilde.php">Endre bilde</a></li>
+                <li><a href="registrer-bilde.php">Registrer bilde</a></li>
+                <li class="current"><a href="endre-bilde.php">Endre bilde</a></li>
                 <li><a href="slett-bilde.php">Slett bilde</a></li>
 
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
@@ -46,13 +46,14 @@
 </header>
 
 <section id="showcase">
-    <form class="form" method="POST" id="registrerBildeSkjema" action="registrer-bilde.php" name="registrerBildeSkjema"  onSubmit="return validateBilde()">
+    <form class="form" method="POST" id="endreBildeSkjema" action="endre-bilde.php" name="endreBildeSkjema"  onSubmit="return validateBilde()">
 
 
-        Registrer bilde  <br> <br>
+        Endre bilde  <br> <br>
         bildenr <br>
-        <input value="" type="text" name="bildenr" id="bildenr"  onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
+        <select name="bildenr" id="bildenr" >
+            <?php include_once("dynamicfunctions.php"); dynamicBoxBildenr(); ?>
+        </select><br>
 
         Opplastingsdato <br>
         <input value="" type="date" name="opplastingsdato" id="opplastingsdato"   onFocus="fokus(this)"
@@ -70,7 +71,7 @@
         <br>
 
 
-        <input value="Registrer Bilde" type="submit" name="submit" id="submit" >
+        <input value="Endre Bilde" type="submit" name="submit" id="submit" >
         <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()">
 
 
@@ -97,14 +98,10 @@
     $filnavn = $_POST["filnavn"];
     $beskrivelse = $_POST["beskrivelse"];
 
-    $exists = mysqli_query($conn, "SELECT * FROM BILDE WHERE bildenr = '$bildenr'");
-    if(mysqli_num_rows($exists) > 0 ) {
-        print("This value already exist");
-        return;
-}
 
 
-    $sql = "insert into BILDE value ('$bildenr', ' $opplastingsdato', '$filnavn', '$beskrivelse');";
+
+    $sql = "UPDATE BILDE SET opplastingsdato = '$opplastingsdato', filnavn = '$filnavn' , beskrivelse = '$beskrivelse' WHERE bildenr = '$bildenr';";
 
     if(mysqli_query($conn, $sql)){
         echo "New record inserted";

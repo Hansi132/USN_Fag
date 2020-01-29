@@ -23,19 +23,15 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-
-                <li class="current"><a href="registrer-klasse.php">Registrer Klasse</a></li>
-                <li><a href="endre-klasse.php">Endre Klasse</a></li>
+                <li><a href="registrer-klasse.php">Registrer Klasse</a></li>
+                <li class = "current"><a href="endre-klasse.php">Endre Klasse</a></li>
                 <li><a href="slett-klasse.php">Slett Klasse</a></li>
-
                 <li><a href="registrer-student.php">Registrer Student</a></li>
                 <li><a href="endre-student.php">Endre Student</a></li>
                 <li><a href="slett-student.php">Slett Student</a></li>
-
                 <li><a href="registrer-bilde.php">Registrer bilde</a></li>
-                <li><a href="endre-bilde.php">Endre bilde</a></li>
+                <li class="current"><a href="endre-bilde.php">Endre bilde</a></li>
                 <li><a href="slett-bilde.php">Slett bilde</a></li>
-
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-alle-bilder.php">Vis bilder</a></li>
@@ -46,13 +42,14 @@
 </header>
 
 <section id="showcase">
-    <form class="form" method="POST" id="registrerFagSkjema" action="registrer-klasse.php" name="registrerFagSkjema"  onSubmit="return validateClass()">
+    <form class="form" method="POST" id="endreFagSkjema" action="endre-klasse.php" name="endreFagSkjema"  onSubmit="return validateClass()">
 
 
         Registrer klasse  <br> <br>
         Klassekode <br>
-        <input value="" type="text" name="klassekode" id="klassekode"  onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onchange="this.value = this.value.toUpperCase();"/> <br>
+        <select name="klassekode" id="klassekode">
+            <?php include_once("dynamicfunctions.php"); dynamicBoxFagkode(); ?>
+        </select> <br>
 
         Klassenavn <br>
         <input value="" type="text" name="klassenavn" id="klassenavn"   onFocus="fokus(this)"
@@ -66,7 +63,7 @@
         <br>
 
 
-        <input value="Registrer Klasse" type="submit" name="submit" id="submit" >
+        <input value="Endre Klasse" type="submit" name="submit" id="submit" >
         <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()">
 
 
@@ -75,78 +72,68 @@
 
 <div id="melding"></div>
 
+
 <?php
 
-    include("dbconnection.php");
 
-    if(!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+
+include("dbconnection.php");
+
+if(!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+
+
+
+error_reporting (E_ALL ^ E_NOTICE);
+
+
+$klassekode= $_POST["klassekode"];
+$klassenavn= $_POST["klassenavn"];
+$studiekode= $_POST["studiekode"];
+
+$lovligklassenavn=true;
+$lovligKlassekode=true;
+$lovligStudiekode = true;
+
+if(!$studiekode){
+    print("Studiekode er ikke fylt ut");
+    $lovligStudiekode = false;
+}
+
+if(!$klassenavn){
+    print("Klassenavn er ikke fylt ut");
+    $lovligklassenavn = false;
+}
+
+if(!$klassekode){
+    $lovligKlassekode=false;
+    print("Klassekode er ikke fylt ut");
+}
+else if (strlen($klassekode)!=3){
+    $lovligKlassekode=false;
+    print("Klassekode er ikke tre tegn");
+}
+
+
+if($lovligKlassekode && $lovligklassenavn && $lovligStudiekode){
+
+
+    //sql query goes here
+    $sql = "UPDATE KLASSE SET klassenavn = '$klassenavn', studiumkode = '$studiekode' WHERE klassekode = '$klassekode';";
+
+    if(mysqli_query($conn, $sql)){
+        echo "New record inserted";
     }
-
-
-
-
-    error_reporting (E_ALL ^ E_NOTICE);
-
-
-    $klassekode= $_POST["klassekode"];
-    $klassenavn= $_POST["klassenavn"];
-    $studiekode= $_POST["studiekode"];
-
-    $lovligklassenavn=true;
-    $lovligKlassekode=true;
-    $lovligStudiekode = true;
-
-    if(!$studiekode){
-        print("Studiekode er ikke fylt ut");
-        $lovligStudiekode = false;
-    }
-
-    if(!$klassenavn){
-        print("Klassenavn er ikke fylt ut");
-        $lovligklassenavn = false;
-    }
-
-    if(!$klassekode){
-        $lovligKlassekode=false;
-        print("Klassekode er ikke fylt ut");
-    }
-    else if (strlen($klassekode)!=3){
-        $lovligKlassekode=false;
-        print("Klassekode er ikke tre tegn");
-    }
-
-    $exists = mysqli_query($conn, "SELECT * FROM KLASSE WHERE klassekode = '$klassekode'");
-    if(mysqli_num_rows($exists) > 0 ) {
-        print("This value already exist");
+    else {
         return;
     }
 
+    mysqli_close($conn);
 
 
 
-    if($lovligKlassekode && $lovligklassenavn && $lovligStudiekode){
-
-
-
-
-
-        //sql query goes here
-         $sql = "insert into KLASSE value ('$klassekode', ' $klassenavn', '$studiekode');";
-
-         if(mysqli_query($conn, $sql)){
-             echo "New record inserted";
-         }
-         else {
-             return;
-         }
-
-         mysqli_close($conn);
-
-
-
-    }
-
-
+}
 
 ?>
