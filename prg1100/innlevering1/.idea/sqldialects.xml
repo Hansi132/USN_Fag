@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/endre-bilde.php" dialect="GenericSQL" />
-    <file url="file://$PROJECT_DIR$/endre-klasse.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/ajax-finn-bilde.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/ajax-finn-klasse.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/ajax-finn-student.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/endre-bilde.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/endre-klasse.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/registrer-bilde.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/registrer-klasse.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/registrer-student.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/vis-alle-klasser.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/vis-alle-klasser.php" dialect="MySQL" />
   </component>
 </project>

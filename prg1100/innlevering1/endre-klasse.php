@@ -11,6 +11,7 @@
     <script src="ajax.js"> </script>
     <script src="valid.js"> </script>
     <script src="case.js"> </script>
+    <script src="ajax-finn-klasse.js"> </script>
 
 
 </head>
@@ -47,7 +48,7 @@
 
         Endre klasse  <br> <br>
         Klassekode <br>
-        <select name="klassekode" id="klassekode">
+        <select name="klassekode" id="klassekode" onchange="finn(this.value)">
             <?php include_once("dynamicfunctions.php"); dynamicBoxFagkode(); ?>
         </select> <br>
 
@@ -57,7 +58,7 @@
 
         Studiekode <br>
         <input value="" type="text" name="studiekode" id="studiekode"  onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" onchange="this.value = this.value.toUpperCase();"/> <br>
+               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
 
         <br>
         <br>

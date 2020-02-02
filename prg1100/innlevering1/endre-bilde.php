@@ -8,9 +8,9 @@
     <meta name="author" content="Hans Kristian Markeseth">
     <title>Assignment 2 | Welcome</title>
     <link rel="stylesheet" href="stil.css">
-    <script src="ajax.js"> </script>
     <script src="valid.js"> </script>
     <script src="case.js"> </script>
+    <script src="ajax-finn-bilde.js"> </script>
 
 
 </head>
@@ -51,7 +51,7 @@
 
         Endre bilde  <br> <br>
         bildenr <br>
-        <select name="bildenr" id="bildenr" >
+        <select name="bildenr" id="bildenr" onchange="finn(this.value)">
             <?php include_once("dynamicfunctions.php"); dynamicBoxBildenr(); ?>
         </select><br>
 
@@ -60,7 +60,7 @@
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
 
         Filnavn <br>
-        <input value="" type="text" name="filnavn" id="filnavn"   onFocus="fokus(this)"
+        <input type="text" name="filnavn" id="filnavn"   onFocus="fokus(this)"
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
 
         Beskrivelse <br>

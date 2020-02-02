@@ -11,6 +11,7 @@
     <script src="ajax.js"> </script>
     <script src="valid.js"> </script>
     <script src="case.js"> </script>
+    <script src="ajax-finn-student.js"> </script>
 
 
 </head>
@@ -62,7 +63,7 @@
         </select>
 
         <br> Brukernavn <br>
-        <select name="brukernavn" id="brukernavn">
+        <select name="brukernavn" id="brukernavn" onchange="finn(this.value)">
             <?php include_once("dynamicfunctions.php"); dynamicBoxBrukernavn(); ?>
         </select>
 
