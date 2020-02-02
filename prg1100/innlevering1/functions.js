@@ -1,3 +1,3 @@
-function confirm(){
-    return confirm("Are you sure you want to delete?");
+function bekreft() {
+    return confirm("Sikker på at du vil slette?");
 }

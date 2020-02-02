@@ -8,9 +8,9 @@
     <meta name="author" content="Hans Kristian Markeseth">
     <title>Assignment 2 | Welcome</title>
     <link rel="stylesheet" href="stil.css">
-    <script src="ajax.js"> </script>
     <script src="valid.js"> </script>
     <script src="case.js"> </script>
+    <script src="functions.js"></script>
 
 
 </head>
@@ -43,7 +43,7 @@
 
 <section id="showcase">
 
-    <form class="form" method="POST" name="forms" onsubmit="return confirm()" action="slett-student.php">
+    <form class="form" method="POST" name="forms" action="slett-student.php" onSubmit="return bekreft()">
 
 
         <br> Brukernavn <br>
@@ -54,14 +54,7 @@
 
         <br>
         <br>
-
-
-
-
         <input type="submit" name="submit" id="submit" value="Slett student" "/>
-
-
-
     </form>
 
 </section>

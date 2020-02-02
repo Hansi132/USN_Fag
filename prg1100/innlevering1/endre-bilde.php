@@ -46,7 +46,7 @@
 </header>
 
 <section id="showcase">
-    <form class="form" method="POST" id="endreBildeSkjema" action="endre-bilde.php" name="endreBildeSkjema"  onSubmit="return validateBilde()">
+    <form class="form" method="POST" id="endreBildeSkjema" action="endre-bilde.php" name="endreBildeSkjema"  onSubmit="return validateBilde()" >
 
 
         Endre bilde  <br> <br>

@@ -8,7 +8,6 @@
     <meta name="author" content="Hans Kristian Markeseth">
     <title>Assignment 2 | Welcome</title>
     <link rel="stylesheet" href="stil.css">
-    <script src="ajax.js"> </script>
     <script src="valid.js"> </script>
     <script src="case.js"> </script>
     <script src="functions.js"></script>
@@ -47,7 +46,7 @@
 </header>
 
 <section id="showcase">
-    <form class="form" method="POST" id="slettBildeSkjema" action="slett-bilde.php" name="slettBildeSkjema"  onSubmit="return confirm()">
+    <form class="form" method="POST" id="slettBildeSkjema" action="slett-bilde.php" name="slettBildeSkjema"  onSubmit="return bekreft()">
 
 
         Slett bilde  <br> <br>

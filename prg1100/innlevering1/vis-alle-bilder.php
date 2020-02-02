@@ -45,7 +45,7 @@
 </header>
 
 <section id="showcase">
-    <p id="text">Vis alle klasser</p>
+    <p id="text">Vis alle Bilder</p>
 </section>
 
 <?php

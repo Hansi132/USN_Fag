@@ -8,9 +8,9 @@
     <meta name="author" content="Hans Kristian Markeseth">
     <title>Assignment 2 | Welcome</title>
     <link rel="stylesheet" href="stil.css">
-    <script src="ajax.js"> </script>
     <script src="valid.js"> </script>
     <script src="case.js"> </script>
+    <script src="functions.js"></script>
 
 
 </head>
@@ -42,7 +42,7 @@
 </header>
 
 <section id="showcase">
-    <form class="form" method="POST" id="SlettFagSkjema" action="slett-klasse.php" name="SlettFagSkjema"  onSubmit="return confirm()">
+    <form class="form" method="POST" id="SlettFagSkjema" action="slett-klasse.php" name="SlettFagSkjema"  onSubmit="return bekreft()">
 
 
         Slett klasse  <br> <br>
