@@ -22,7 +22,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="registrer-klasse.php">Registrer Klasse</a></li>
                 <li><a href="endre-klasse.php">Endre Klasse</a></li>
                 <li class="current"><a href="slett-klasse.php">Slett Klasse</a></li>
@@ -91,6 +91,8 @@ $klassekode= $_POST["klassekode"];
         echo "Record deleted";
     }
     else {
+
+        echo "Cant delete klasse because foreign key constrains on student.";
         return;
     }
 

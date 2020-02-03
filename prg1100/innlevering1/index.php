@@ -11,6 +11,7 @@
     <script src="ajax.js"> </script>
     <script src="valid.js"> </script>
     <script src="case.js"> </script>
+    <script src="ajax-ri-database.js"> </script>
 
 
 </head>
@@ -22,7 +23,7 @@
         </div>
         <nav>
             <ul>
-                <li class="current"><a href="index.html">Home</a></li>
+                <li class="current"><a href="index.php">Home</a></li>
 
                 <li><a href="registrer-klasse.php">Registrer Klasse</a></li>
                 <li><a href="endre-klasse.php">Endre Klasse</a></li>
@@ -47,4 +48,83 @@
 
 <section id="showcase">
     <p id="text">Hei og velkommen til min innlevering</p>
+
+    <p id="text">To reset all database entries use the button below.</p>
+
+
+    <form class="form" method="POST" id="SlettFagSkjema" action="index.php" name="SlettFagSkjema"  onSubmit="return bekreft()">
+
+
+
+
+        <input value="Reset Alt" type="submit" name="submit" id="submit">
+
+
+
+    </form>
+
+
 </section>
+
+<?php
+
+
+
+include("dbconnection.php");
+
+if(!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+
+
+
+error_reporting (E_ALL ^ E_NOTICE);
+
+
+$klassekode= $_POST["klassekode"];
+
+
+
+//sql query goes here
+$sql = "DELETE FROM STUDENT;
+        DELETE FROM KLASSE;
+        DELETE FROM BILDE;
+        
+        insert into KLASSE value ('IT1', 'IT og informasjonssystemer 1. år', 'ITIS');
+        insert into KLASSE value ('IT2', 'IT og informasjonssystemer 2. år', 'ITIS');
+        insert into KLASSE value ('IT3', 'IT og informasjonssystemer 3. år', 'ITIS');
+
+        insert into BILDE value ('001', '2020-03-01', 'tb.jpg', 'lott bilde av Tove');
+        insert into BILDE value ('002', '2020-04-01', 'gb.jpg', 'grusomt bilde av Geir');
+        insert into BILDE value ('003', '2020-04-15', 'mj.jpg', 'Marius i solnedgang');
+
+        insert into STUDENT value ('gb', 'Geir', 'Bjarvin', 'IT1', '002');
+        insert into STUDENT value ('mrj', 'Marius R.', 'Johannesen', 'IT1', '003');
+        insert into STUDENT value ('tb', 'Tove', 'Bøe', 'IT2', '001');
+
+
+       ";
+
+
+if(mysqli_multi_query($conn, $sql)){
+    echo "Done";
+}
+else {
+
+    echo "Cant delete klasse because foreign key constrains on student." . mysqli_error($conn);
+    return;
+}
+
+
+
+mysqli_close($conn);
+
+
+
+
+
+?>
+
+
+
