@@ -48,6 +48,7 @@
 
         <br> Brukernavn <br>
         <select name="brukernavn" id="brukernavn">
+            <option value="" selected disabled hidden>Please select a value</option>
             <?php include_once("dynamicfunctions.php"); dynamicBoxBrukernavn(); ?>
         </select>
 

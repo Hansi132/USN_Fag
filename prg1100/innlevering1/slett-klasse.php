@@ -48,6 +48,7 @@
         Slett klasse  <br> <br>
         Klassekode <br>
         <select name="klassekode" id="klassekode">
+            <option value="" selected disabled hidden>Please select a value</option>
             <?php include_once("dynamicfunctions.php"); dynamicBoxFagkode(); ?>
         </select> <br>
 

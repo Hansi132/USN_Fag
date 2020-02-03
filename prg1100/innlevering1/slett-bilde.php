@@ -52,6 +52,7 @@
         Slett bilde  <br> <br>
         bildenr <br>
         <select name="bildenr" id="bildenr" >
+            <option value="" selected disabled hidden>Please select a value</option>
             <?php include_once("dynamicfunctions.php"); dynamicBoxBildenr(); ?>
         </select><br>
 
