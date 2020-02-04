@@ -46,14 +46,14 @@
 </header>
 
 <section id="showcase">
-    <form class="form" method="POST" id="slettBildeSkjema" action="slett-bilde.php" name="slettBildeSkjema"  onSubmit="return bekreft()">
+    <form class="form" method="POST" id="slettBildeSkjema" action="slett-bilde.php" name="slettBildeSkjema"  onSubmit="return bekreft()" onsubmit="">
 
 
         Slett bilde  <br> <br>
         bildenr <br>
-        <select name="bildenr" id="bildenr" >
+        <select name="bildenrfilnavn" id="bildenrfilnavn" >
             <option value="" selected disabled hidden>Please select a value</option>
-            <?php include_once("dynamicfunctions.php"); dynamicBoxBildenr(); ?>
+            <?php include_once ("dynamicfunctions.php"); dynamicBoxBildenrFilename();?>
         </select><br>
 
 
@@ -61,7 +61,7 @@
         <br>
 
 
-        <input value="Slett Bilde" type="submit" name="submit" id="submit" >
+        <input value="Slett Bilde" type="submit" name="submit" id="submit">
 
 
 
@@ -80,27 +80,41 @@ if(!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-error_reporting (E_ALL ^ E_NOTICE);
+error_reporting (E_ALL ^ E_ALL);
 
 
-$bildenr = $_POST["bildenr"];
-$opplastingsdato = $_POST["opplastingsdato"];
-$filnavn = $_POST["filnavn"];
-$beskrivelse = $_POST["beskrivelse"];
+$bildenrfilnavn = $_POST["bildenrfilnavn"];
+
+$del = explode(";" , $bildenrfilnavn);
+$bildenr = $del[0];
+$filnavn = $del[1];
+
+$filepath = "images\\" . $filnavn;
 
 
 
+// todo Finn navnet på filen med full path, concat filnavn med path, slett så bilde ved bruk av unlink($filnavn)–sletteren fil
+// Husk å fikse filnavn på filen i endre bildet når man endrer på navnet til bilde også i databasen
 
-$sql = "DELETE FROM BILDE WHERE bildenr = '$bildenr'";
 
-if(mysqli_query($conn, $sql)){
-    echo "Record Deleted";
+$sql = "DELETE FROM BILDE WHERE bildenr = '$bildenr';";
+
+
+
+if(mysqli_multi_query($conn, $sql)){
+
+    if(file_exists($filepath)){
+        unlink($filepath);
+    }
+
 }
 else {
 
     echo "Cant delete bilde because of foreign key constraints on students.";
     return;
 }
+
+
 
 mysqli_close($conn);
 

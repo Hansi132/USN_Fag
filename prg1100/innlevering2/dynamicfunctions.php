@@ -47,6 +47,32 @@ function dynamicBoxBildenr()
     mysqli_close($conn);
 }
 
+function dynamicBoxBildenrFilename()
+{
+
+    include("dbconnection.php");
+
+
+    $sql = "SELECT * FROM BILDE";
+
+    if (!empty($conn)) {
+        $result = mysqli_query($conn, $sql) or die ("Not possible to fetch from db");
+    }
+
+    $rows = mysqli_num_rows($result);
+
+    for ($i = 1; $i <= $rows; $i++) {
+        $row = mysqli_fetch_assoc($result);
+        $kode = $row["bildenr"];
+        $filnavn = $row["filnavn"];
+        print("<option value='$kode;$filnavn'>$kode</option>");
+    }
+
+    mysqli_close($conn);
+
+
+
+}
 
 
 function dynamicBoxBrukernavn()

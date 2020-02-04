@@ -46,7 +46,7 @@
 </header>
 
 <section id="showcase">
-    <form class="form" method="POST" id="registrerBildeSkjema" action="registrer-bilde.php" name="registrerBildeSkjema"  onSubmit="return validateBilde()">
+    <form class="form" method="POST" id="registrerBildeSkjema" action="registrer-bilde.php" name="registrerBildeSkjema"  onSubmit="return validateBilde()" enctype="multipart/form-data">
 
 
         Registrer bilde  <br> <br>
@@ -58,8 +58,8 @@
         <input value="" type="date" name="opplastingsdato" id="opplastingsdato"   onFocus="fokus(this)"
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
 
-        Filnavn <br>
-        <input value="" type="text" name="filnavn" id="filnavn"   onFocus="fokus(this)"
+        Fil <br>
+        <input value="" type="file" name="fil" id="fil"   onFocus="fokus(this)"
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
 
         Beskrivelse <br>
@@ -89,19 +89,30 @@
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    error_reporting (E_ALL ^ E_NOTICE);
+    error_reporting (E_ALL ^ E_ALL);
 
 
     $bildenr = $_POST["bildenr"];
     $opplastingsdato = $_POST["opplastingsdato"];
-    $filnavn = $_POST["filnavn"];
     $beskrivelse = $_POST["beskrivelse"];
+
+    $filnavn = $_FILES["fil"]["name"];
+    $size = $_FILES ["fil"]["size"];
+    $type = $_FILES ["fil"]["type"];
+    $tmpname = $_FILES ["fil"]["tmp_name"];
+
+    $fullname = "images\\" . $filnavn;
+
+
+
 
     $exists = mysqli_query($conn, "SELECT * FROM BILDE WHERE bildenr = '$bildenr'");
     if(mysqli_num_rows($exists) > 0 ) {
         print("This value already exist");
         return;
 }
+
+    move_uploaded_file($tmpname, $fullname);
 
 
     $sql = "insert into BILDE value ('$bildenr', ' $opplastingsdato', '$filnavn', '$beskrivelse');";
@@ -110,6 +121,7 @@
         echo "New record inserted";
     }
     else {
+        unlink($fullname);
         return;
     }
 

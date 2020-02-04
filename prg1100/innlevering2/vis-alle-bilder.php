@@ -44,9 +44,6 @@
     </div>
 </header>
 
-<section id="showcase">
-    <p id="text">Vis alle Bilder</p>
-</section>
 
 <?php
 
@@ -62,11 +59,29 @@ $sql = "SELECT * FROM BILDE";
 
 $result = mysqli_query($conn, $sql);
 
-if(mysqli_num_rows($result) > 0) {
-    while($row = mysqli_fetch_assoc($result)){
-        echo "Bildenr: " . $row["bildenr"] . " opplastingsdato: " . $row["opplastingsdato"] . " filnavn: " . $row["filnavn"] . " Beskrivelse: " . $row["beskrivelse"] . "<br>";
-    }
+print ("<h3>Registrerte bilder </h3>");
+
+print ("<table border=1>");
+
+print ("<tr><th align=left>bildenr</th> <th align=left>filnavn</th> <th align=left>beskrivelse</th></tr>");
+
+
+$rows = mysqli_num_rows($result);
+
+for ($r = 1; $r <= $rows; $r++){
+    $rad = mysqli_fetch_array($result);
+    $bildenr=$rad["bildenr"];
+    $filnavn=$rad["filnavn"];
+    $beskrivelse=$rad["beskrivelse"];
+
+    print ("<tr> <td> $bildenr </td> <td> <a href='images/$filnavn' target='_blank'>$filnavn </a> </td> <td>$beskrivelse </td>  </tr>");
+
 }
+
+print ("</table>");
+
+
+
 
 
 ?>

@@ -61,8 +61,13 @@
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
 
         Filnavn <br>
-        <input type="text" name="filnavn" id="filnavn"   onFocus="fokus(this)"
-               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
+        <input type="text" name="filnavn" id="filnavn"  onFocus="fokus(this)"
+               onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" readonly /> <br>
+
+        Nytt filnavn <br>
+        <input type='text' name='nyttfilnavn' id='nyttfilnavn' onFocus='fokus(this)'
+               onBlur='mistetFokus(this)' onMouseOver='musInn(this)' onMouseOut='musUt()' /> <br>
+
 
         Beskrivelse <br>
         <input value="" type="text" name="beskrivelse" id="beskrivelse"  onFocus="fokus(this)"
@@ -101,8 +106,6 @@ if (isset($_POST)) {
     $opplastingsdato = $_POST["opplastingsdato"];
     $filnavn = $_POST["filnavn"];
     $beskrivelse = $_POST["beskrivelse"];
-
-
 
 
     $sql = "UPDATE BILDE SET opplastingsdato = '$opplastingsdato', filnavn = '$filnavn' , beskrivelse = '$beskrivelse' WHERE bildenr = '$bildenr';";
