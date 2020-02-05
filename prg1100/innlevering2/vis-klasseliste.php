@@ -8,9 +8,10 @@
     <meta name="author" content="Hans Kristian Markeseth">
     <title>Assignment 2 | Welcome</title>
     <link rel="stylesheet" href="stil.css">
-    <script src="ajax.js"> </script>
     <script src="valid.js"> </script>
     <script src="case.js"> </script>
+    <script src="functions.js"></script>
+
 
 </head>
 <body>
@@ -33,38 +34,22 @@
 
                 <li><a href="registrer-bilde.php">Registrer bilde</a></li>
                 <li><a href="endre-bilde.php">Endre bilde</a></li>
-                <li><a href="slett-bilde.php">Slett bilde</a></li>
+                <li class="current"><a href="slett-bilde.php">Slett bilde</a></li>
 
-                <li class="current"><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
+                <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-alle-bilder.php">Vis bilder</a></li>
-                <li><a href="vis-klasseliste.php">Vis klasseliste</a></li>
+                <li class="current"><a href="vis-klasseliste.php.php">Vis klasseliste</a></li>
+
             </ul>
         </nav>
     </div>
 </header>
 
 <section id="showcase">
-    <p id="text">Vis alle klasser</p>
+
+
+
 </section>
 
-<?php
-
-include("dbconnection.php");
-
-if(!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-    $sql = "SELECT * FROM KLASSE";
-
-    $result = mysqli_query($conn, $sql);
-
-    if(mysqli_num_rows($result) > 0) {
-        while($row = mysqli_fetch_assoc($result)){
-            echo "Klassekode: " . $row["klassekode"] . " Klassenavn: " . $row["klassenavn"] . " Studiumkode: " . $row["studiumkode"] . "<br>";
-        }
-    }
-
-
-?>
+<div id="melding"></div>

@@ -38,6 +38,7 @@
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li class="current"><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-alle-bilder.php">Vis bilder</a></li>
+                <li><a href="vis-klasseliste.php">Vis klasseliste</a></li>
 
             </ul>
         </nav>

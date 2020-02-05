@@ -39,6 +39,7 @@
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-alle-bilder.php">Vis bilder</a></li>
+                <li><a href="vis-klasseliste.php">Vis klasseliste</a></li>
 
             </ul>
         </nav>
@@ -101,9 +102,7 @@
     $type = $_FILES ["fil"]["type"];
     $tmpname = $_FILES ["fil"]["tmp_name"];
 
-    $fullname = "images\\" . $filnavn;
-
-
+    $fullname = "images/" . $filnavn;
 
 
     $exists = mysqli_query($conn, "SELECT * FROM BILDE WHERE bildenr = '$bildenr'");

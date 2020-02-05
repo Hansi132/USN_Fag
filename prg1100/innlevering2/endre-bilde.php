@@ -39,6 +39,7 @@
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-alle-bilder.php">Vis bilder</a></li>
+                <li><a href="vis-klasseliste.php">Vis klasseliste</a></li>
 
             </ul>
         </nav>
@@ -61,7 +62,7 @@
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
 
         Filnavn <br>
-        <input type="text" name="filnavn" id="filnavn"  onFocus="fokus(this)"
+        <input type="text" name="filnavn" id="filnavn" onFocus="fokus(this)"
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" readonly /> <br>
 
         Nytt filnavn <br>
@@ -88,7 +89,8 @@
 <?php
 
 if (isset($_POST)) {
-    unset($_POST);
+
+
 }
 
 
@@ -99,19 +101,26 @@ if (isset($_POST)) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    error_reporting (E_ALL ^ E_NOTICE);
+    error_reporting (E_ALL ^ E_ALL);
 
 
     $bildenr = $_POST["bildenr"];
     $opplastingsdato = $_POST["opplastingsdato"];
     $filnavn = $_POST["filnavn"];
     $beskrivelse = $_POST["beskrivelse"];
+    $nyttfilnavn = $_POST["nyttfilnavn"];
 
 
-    $sql = "UPDATE BILDE SET opplastingsdato = '$opplastingsdato', filnavn = '$filnavn' , beskrivelse = '$beskrivelse' WHERE bildenr = '$bildenr';";
+
+
+
+
+
+    $sql = "UPDATE BILDE SET opplastingsdato = '$opplastingsdato', filnavn = '$nyttfilnavn' , beskrivelse = '$beskrivelse' WHERE bildenr = '$bildenr';";
 
     if(mysqli_query($conn, $sql)){
-        echo "New record inserted";
+        rename("images/" . $filnavn,"images/" . $nyttfilnavn);
+        echo "Edited record";
     }
     else {
         return;

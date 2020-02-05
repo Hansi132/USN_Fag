@@ -39,6 +39,7 @@
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-alle-bilder.php">Vis bilder</a></li>
+                <li><a href="vis-klasseliste.php">Vis klasseliste</a></li>
 
             </ul>
         </nav>
@@ -89,13 +90,7 @@ $del = explode(";" , $bildenrfilnavn);
 $bildenr = $del[0];
 $filnavn = $del[1];
 
-$filepath = "images\\" . $filnavn;
-
-
-
-// todo Finn navnet på filen med full path, concat filnavn med path, slett så bilde ved bruk av unlink($filnavn)–sletteren fil
-// Husk å fikse filnavn på filen i endre bildet når man endrer på navnet til bilde også i databasen
-
+$filepath = "images/" . $filnavn;
 
 $sql = "DELETE FROM BILDE WHERE bildenr = '$bildenr';";
 
@@ -104,7 +99,7 @@ $sql = "DELETE FROM BILDE WHERE bildenr = '$bildenr';";
 if(mysqli_multi_query($conn, $sql)){
 
     if(file_exists($filepath)){
-        unlink($filepath);
+        unlink($filepath) or die ("Test");
     }
 
 }
