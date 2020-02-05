@@ -39,7 +39,7 @@
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-alle-bilder.php">Vis bilder</a></li>
-                <li class="current"><a href="vis-klasseliste.php.php">Vis klasseliste</a></li>
+                <li class="current"><a href="vis-klasseliste.php">Vis klasseliste</a></li>
 
             </ul>
         </nav>
@@ -47,9 +47,53 @@
 </header>
 
 <section id="showcase">
+    <form class="form" method="POST" id="klasseliste" action="vis-klasseliste.php" name="klasseliste">
+         Klassekode <br>
+            <select name="klassekode" id="klassekode">
+                 <option value="" selected disabled hidden>Please select a value</option>
+                    <?php include_once("dynamicfunctions.php"); dynamicBoxFagkode(); ?>
+            </select> <br>
 
 
 
+
+        <input value="Finn Klasseliste" type="submit" name="submit" id="submit">
+    </form>
+
+    <?php
+
+        error_reporting(E_ALL ^ E_ALL);
+
+        $klassekode = $_POST["klassekode"];
+
+
+        include "dbconnection.php";
+
+
+
+        $sql = "SELECT * FROM STUDENT join KLASSE K on STUDENT.klassekode = K.klassekode join BILDE B on STUDENT.bildenr = B.bildenr WHERE K.klassekode = '$klassekode';";
+
+        $result = mysqli_query($conn, $sql);
+
+        $rows = mysqli_num_rows($result);
+
+        print ("<table border=1>");
+
+        print ("<tr><th align=left>Bilde</th> <th align=left>Fornavn</th> <th align=left>Etternavn</th></tr>");
+
+        for ($r = 1; $r <= $rows; $r++) {
+            $rad = mysqli_fetch_array($result);
+            $fornavn = $rad["fornavn"];
+            $etternavn = $rad["etternavn"];
+            $filnavn = $rad["filnavn"];
+
+
+            print ("<tr> <td> <img src='images/$filnavn' width='100' height='100'></td> <td>$fornavn</td> <td>$etternavn</td> </tr>");
+    }
+
+    print ("</table>");
+
+    ?>
 </section>
 
-<div id="melding"></div>
+<div id="melding">Bilder av personer hentet fra usn.no/om-usn/kontakt-oss/ansatte/"navn"</div>
