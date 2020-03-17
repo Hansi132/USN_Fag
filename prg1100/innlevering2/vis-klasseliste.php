@@ -62,6 +62,8 @@
 
     <?php
 
+
+
         error_reporting(E_ALL ^ E_ALL);
 
         $klassekode = $_POST["klassekode"];
@@ -96,4 +98,4 @@
     ?>
 </section>
 
-<div id="melding">Bilder av personer hentet fra usn.no/om-usn/kontakt-oss/ansatte/"navn"</div>
+<div id="melding">Bilder av personer hentet fra usn.no/om-usn/kontakt-oss/ansatte/"Navn"</div>
