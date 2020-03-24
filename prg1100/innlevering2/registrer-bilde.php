@@ -90,15 +90,16 @@ include("IsLogged.php");
 
 <?php
 
+if(isset($_POST["submit"])) {
 
 
     include("dbconnection.php");
 
-    if(!$conn) {
+    if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    error_reporting (E_ALL ^ E_ALL);
+    error_reporting(E_ALL ^ E_ALL);
 
 
     $bildenr = $_POST["bildenr"];
@@ -112,27 +113,33 @@ include("IsLogged.php");
 
     $fullname = "images/" . $filnavn;
 
-
     $exists = mysqli_query($conn, "SELECT * FROM BILDE WHERE bildenr = '$bildenr'");
-    if(mysqli_num_rows($exists) > 0 ) {
+    if (mysqli_num_rows($exists) > 0) {
         print("This value already exist");
         return;
-}
-
-    move_uploaded_file($tmpname, $fullname);
-
-
-    $sql = "insert into BILDE value ('$bildenr', ' $opplastingsdato', '$filnavn', '$beskrivelse');";
-
-    if(mysqli_query($conn, $sql)){
-        echo "New record inserted";
     }
-    else {
-        unlink($fullname);
+
+    $imageFileType = strtolower(pathinfo($fullname, PATHINFO_EXTENSION));
+
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif") {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         return;
+    } else {
+        move_uploaded_file($tmpname, $fullname);
+
+
+        $sql = "insert into BILDE value ('$bildenr', ' $opplastingsdato', '$filnavn', '$beskrivelse');";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "New record inserted";
+        } else {
+            unlink($fullname);
+            return;
+        }
+
+        mysqli_close($conn);
+
     }
-
-    mysqli_close($conn);
-
-
+}
 ?>
