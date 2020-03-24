@@ -1,3 +1,7 @@
+<?php
+include("IsLogged.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -41,6 +45,9 @@
                 <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
                 <li><a href="vis-alle-bilder.php">Vis bilder</a></li>
                 <li><a href="vis-klasseliste.php">Vis klasseliste</a></li>
+                <li><a href="search.php">Sokefunksjon</a></li>
+
+                <li><a href="utlogging.php">Logg ut</a></li>
 
             </ul>
         </nav>

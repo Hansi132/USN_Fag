@@ -7,7 +7,6 @@ body{
     background-color: #f4f4f4;
 }
 
-
 .forms{
     padding: 1%;
     margin: auto;
@@ -39,6 +38,11 @@ body{
     width: 80%;
     margin: auto;
     overflow: hidden;
+}
+
+#showcase h3.Login {
+    font-size: 40px;
+    text-align: center;
 }
 
 header{
@@ -92,6 +96,21 @@ header a:hover{
 
 }
 
+#showcase a{
+    color: #2865bb;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#showcase a:hover {
+    color: #2865bb;
+    font-weight: bolder;
+}
+
+
+
 
 
 .form {
@@ -108,7 +127,6 @@ header a:hover{
     color: #ffffff;
     text-align: center;
 }
-
 
 
 
@@ -150,10 +168,26 @@ header a:hover{
     margin-bottom: 10px;
 }
 
-#showcase p{
+#showcase h1.search{
+    margin-top: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#showcase p.innlogging {
     font-size: 20px;
 }
 
+#showcase table.center{
+    margin-left:auto;
+    margin-right:auto;
+    border: 3px solid #2865bb;
+    border-collapse: collapse;
+}
+
+#showcase th, td {
+    border: 3px solid #2865bb;
+}
 
 
 
