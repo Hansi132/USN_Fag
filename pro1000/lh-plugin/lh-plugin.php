@@ -29,21 +29,7 @@ function my_plugin_options() {
 	}
 
 	//TODO Here we add setting for using the database, and how we setup the plugin to work.
-	echo "<div class='wrap'>";
-	echo "<p>Here is where the options would go if i had some</p>";
-	echo "</div>";
-	echo "<form class=\"form\" method=\"post\" name=\"forms\" action=\"\">
-		<label for='amount'>Amount</label>
-        <input type=\"text\" id=\"amount\" name=\"amount\" required>
-        <br>
-        <input type=\"submit\" name=\"submit\" id=\"submit\" value=\"Søk\"/>
-    </form>";
 
-
-	if(isset($_POST["amount"])) {
-		$amount = $_POST["amount"];
-		echo "You pushed the amount of " . $amount;
-	}
 
 
 }
@@ -56,9 +42,24 @@ function wp_shortcode_create($atts = array()) {
 		'name' => 'Name'
 	), $atts));
 
-	return "<form class='form' method='post' name='form' action=''" . "<label for='name'> $name" . "<input type='text' class='name' id='name' value='' required>" .
-		"<label for='Email'> Email" . "<input type='text' class='name' id='name' value='' required>" .
-		"<input type='submit' name='submit' id='submit' value='Send'>" . "</form>";
+	return <<<HTML
+			<form class="form" method="post" name="form" action="lh-plugin.php">
+			<label for="name">Navn</label>
+			<input type="text" class="name" id="name" required>
+			<label for="email">E-Post</label>
+			<input type="email" class="email" id="email" required>
+			<label for="telefon">Telefon</label>
+			<input type="text" class="telefon" id="telefon" required>
+			<label for="hvorfor">Hva</label>
+			<textarea class="hvorfor" name="hvorfor" id="hvorfor">Hva ønsker du?</textarea>
+			<br>
+			<input type="submit" name="submit" id="submit" value="Send"/>
+		
+</form>
+HTML;
+
 }
 
-add_shortcode("5", "wp_shortcode_create");
+
+
+add_shortcode("CreateForm", "wp_shortcode_create");
