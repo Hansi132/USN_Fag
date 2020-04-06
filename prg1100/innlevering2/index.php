@@ -55,7 +55,7 @@ include("IsLogged.php");
 </header>
 
 <section id="showcase">
-    <p id="text">Hei og velkommen til min innlevering</p>
+    <p id="text">Hei og velkommen til min innlevering!</p>
 
     <p id="text">To reset all database entries use the button below.</p>
 

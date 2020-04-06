@@ -71,7 +71,6 @@
         <br>
         <br>
 
-
         <input value="Endre Bilde" type="submit" name="submit" id="submit" >
         <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()">
 
@@ -82,6 +81,10 @@
 <div id="melding"></div>
 
 <?php
+
+if (isset($_POST)) {
+    unset($_POST);
+}
 
 
 

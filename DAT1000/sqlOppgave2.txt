@@ -1,0 +1,88 @@
+CREATE TABLE Deltaker (
+  StartNr INT not null,
+  Fornavn VARCHAR(45),
+  Etternavn VARCHAR(45),
+  Fodselsdato DATE,
+  Kjonn CHAR(1),
+  Aldersklasse_AldersklasseId INT,
+  Nasjon_NasjonKode CHAR(3),
+  PRIMARY KEY (StartNr),
+  FOREIGN KEY (Aldersklasse_AldersklasseId) REFERENCES Aldersklasse (AldersklasseId),
+  FOREIGN KEY (Nasjon_NasjonKode) REFERENCES Nasjon (NasjonKode)
+);
+
+CREATE TABLE Paamelding (
+    StartListeID INT not null,
+    Deltaker_StartNr INT not null,
+    Ovelse_Id INT,
+    PRIMARY KEY (StartListeID, Deltaker_StartNr, Ovelse_Id),
+    FOREIGN KEY (Deltaker_StartNr) REFERENCES Deltaker (StartNr),
+    FOREIGN KEY (Ovelse_Id) REFERENCES Ovelse (OvelseID),
+    FOREIGN KEY (StartListeID) REFERENCES StartListe (StartListeId)
+);
+
+CREATE TABLE Aldersklasse (
+    AldersklasseId INT not null,
+    Navn VARCHAR(45),
+    FraAlder int not null,
+    TilAlder int not null,
+    PRIMARY KEY (AldersklasseId)
+);
+
+CREATE TABLE Nasjon (
+    NasjonKode CHAR(3),
+    Navn VARCHAR(45),
+    Leder VARCHAR(45),
+    PRIMARY KEY (NasjonKode)
+);
+
+CREATE TABLE Ovelse (
+    OvelseID INT NOT NULL,
+    Lengde INT,
+    Beskrivelse VARCHAR(45),
+    Klasse VARCHAR(45),
+    Dato DATE,
+    Starttid DATETIME,
+    PRIMARY KEY (OvelseID)
+);
+
+CREATE TABLE StartListe (
+    StartListeId INT,
+    StartTid TIME,
+    PRIMARY KEY (StartListeId)
+);
+
+CREATE TABLE Status (
+    StatusId INT NOT NULL,
+    Navn VARCHAR(45),
+    PRIMARY KEY (StatusId)
+);
+
+CREATE TABLE ResultatListe (
+    ResultatListeId INT NOT NULL,
+    Status_StatusId INT,
+    StartListe_StartListeId INT,
+    PRIMARY KEY (ResultatListeId),
+    FOREIGN KEY (Status_StatusId) REFERENCES Status (StatusId),
+    FOREIGN KEY (StartListe_StartListeId) REFERENCES StartListe (StartListeID)
+);
+
+CREATE TABLE Passering (
+    Bilde VARCHAR(45),
+    Passeringspunkt_PasseringspunktId INT,
+    Paamelding_StartNr INT,
+    StartListe_StartListeId int UNIQUE,
+    Tidspunkt TIME,
+    FOREIGN KEY (Passeringspunkt_PasseringspunktId) REFERENCES PasseringsPunkt (PasseringsPunktId),
+    FOREIGN KEY (StartListe_StartListeId) REFERENCES StartListe (StartListeId)
+);
+
+CREATE TABLE PasseringsPunkt (
+    PasseringsPunktId INT NOT NULL,
+    Navn VARCHAR(45),
+    Avstand INT,
+    HoydeForskjell INT,
+    Ovelse_Id INT,
+    PRIMARY KEY (PasseringsPunktId),
+    FOREIGN KEY (Ovelse_Id) REFERENCES Ovelse (OvelseID)
+);

@@ -148,7 +148,7 @@ if(isset($_POST["submit"])){
             $searchlenght = strlen($search);
 
             print("<tr><td>");
-            $text = "$brukernavn $fornavn $etternavn $klassekode $bildenr";
+            $text = "$brukernavn | $fornavn | $etternavn | $klassekode | $bildenr";
             $startpos = stripos($text, $search);
 
             while ($startpos!== false){

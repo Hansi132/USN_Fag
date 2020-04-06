@@ -1,0 +1,23 @@
+Deltakere 
+ 
+Hans Kristian Odberg Markeseth  233569 
+Marthin Tvedten Hauge 233619 
+Bendik Borge Öttl 224200 
+William Fosmark Haugland 233584 
+Oskar Brekke Fuglem 223722 Christopher Tverråen 226526 
+
+
+3. Normalform ble løst ved å bruke reglene for det. Altså når en ikke primær nøkkel bergrunner seg på en annen ikke primær nøkkel.
+Dette bryter da med andre normalform.
+2NF er også et krav til 3NF.
+
+Derfor blir Status løst ut fra ResultatListe, alle entiteter er bestemt av en primærnøkkel i alle tabeller og all redudant data er flyttet til egene taballer som Aldersklasse og Nasjon.
+Vi har også en mange til mange forhold som er knytt sammen av paamelding tabellen som gjør det mulig å ha en mange til mange forhold da dette kun eksister i den abstrakte database, og ikke i produksjon.
+Denne oppgaven har mange muligheter, men måten vi har løst oppgaven på er å unngå mest mulig redudant data under produksjon noe som gjør at det blir mindre normalisering, men vi har gått over det meste av våre tabeller og slikt.
+Vi har flyttet på noen ting og lagt til andre. Men basisen på alle tabeller er at dem skal følge 3NF.
+
+Noen problemer med dette systemet som kan løses på sikt er å lage view til å se etter hvem som har hvilke posisjoner, men også en problemstilling som løses av det å ha en startliste er det å kunne ha muligheten til å flere runder.
+
+Dette er derfor en god start på et system, men det mangler fortsatt en del triggere og views som kan gjøre denne oppgaven til en løsning som er mulig å kjøre i et ekte scenario.
+
+I ER diagrammet har vi også brukt identifying og non-identifying relationships og forskjellen på dette er at identifying er brukt når det som referer og blir referert til er primærnøkkel i dems respektive tabeller, mens en non-identifying relationships er for tabeller som ikke referer primær til primær.

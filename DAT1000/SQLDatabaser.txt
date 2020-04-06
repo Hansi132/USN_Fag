@@ -1,0 +1,85 @@
+CREATE table klasse (
+    klassekode char(3) not null ,
+    klassenavn varchar(50) not null,
+    primary key (klassekode)
+);
+
+CREATE table fag (
+    fagkode char(7) not null,
+    fagnavn varchar(100) not null,
+    klassekode char(3) not null,
+    PRIMARY KEY (fagkode),
+    FOREIGN KEY (klassekode) REFERENCES klasse(klassekode)
+);
+
+CREATE table oppgave (
+    fagkode char(7) not null ,
+    nr int not null ,
+    frist date null ,
+    primary key (fagkode, nr),
+    foreign key (fagkode) REFERENCES fag(fagkode)
+);
+
+CREATE table bilde(
+    bildenr char(3) not null ,
+    filnavn varchar(100) not null ,
+    beskrivelse varchar(255) not null ,
+    primary key (bildenr)
+);
+
+CREATE table student (
+    brukernavn varchar(20) not null ,
+    fornavn varchar(40) not null ,
+    etternavn varchar(40) not null ,
+    klassekode char(3) not null ,
+    bildenr char(3) not null ,
+    primary key (brukernavn) ,
+    foreign key (klassekode) references klasse(klassekode),
+    foreign key (bildenr) references bilde(bildenr)
+);
+
+CREATE table fagdeltager (
+    fagkode char(7) not null ,
+    brukernavn varchar(20) not null,
+    primary key (fagkode, brukernavn),
+    foreign key (fagkode) references fag(fagkode),
+    foreign key (brukernavn) references student(brukernavn)
+);
+
+
+INSERT INTO klasse VALUE ('IS1','Informasjonsystemer 1. År');
+INSERT INTO klasse VALUE ('IS2','Informasjonsystemer 2. År');
+INSERT INTO klasse VALUE ('IS3','Informasjonsystemer 3. År');
+
+INSERT INTO fag VALUE ('BAC300', 'Bacheloroppgave', 'IS3');
+INSERT INTO fag VALUE ('DAT1000', 'Databaseteknologi', 'IS1');
+INSERT INTO fag VALUE ('INF1000', 'Informasjonssystemer', 'IS1');
+INSERT INTO fag VALUE ('LED2000', 'Ledelse av IT-prosjekter', 'IS2');
+INSERT INTO fag VALUE ('OBJ2000', 'Objektorientert programmering', 'IS2');
+INSERT INTO fag VALUE ('PRG3000', 'Anvendt programering', 'IS3');
+
+INSERT INTO oppgave VALUE ('DAT1000','1','2012-10-20');
+INSERT INTO oppgave VALUE ('DAT1000','2', null);
+INSERT INTO oppgave VALUE ('INF1000','1','2012-10-30');
+INSERT INTO oppgave VALUE ('INF1000','2', null);
+
+INSERT INTO dat1000.bilde VALUE ('001', 'bilder/andanders.jpg', 'bilde av Anders Andersen');
+INSERT INTO dat1000.bilde VALUE ('002', 'bilder/evahans.jpg', 'bilde av Eva Hansen');
+INSERT INTO dat1000.bilde VALUE ('003', 'bilder/oleols.jpg', 'bilde av Ole Olsen');
+INSERT INTO dat1000.bilde VALUE ('004', 'bilder/karjens.jpg', 'bilde av Kari Jensen');
+INSERT INTO dat1000.bilde VALUE ('005', 'bilder/nilnils.jpg', 'bilde av Nils Nilsen');
+INSERT INTO dat1000.bilde VALUE ('006', 'bilder/grepetter.jpg', 'bilde av Grete Pettersen');
+
+INSERT INTO dat1000.student VALUE ('andanders', 'Anders' , 'Andersen', 'IS1', '001');
+INSERT INTO dat1000.student VALUE ('evahans', 'Eva' ,'Hansen', 'IS1', '002');
+INSERT INTO dat1000.student VALUE ('oleols', 'Ole' , 'Olsen', 'IS1', '003');
+INSERT INTO dat1000.student VALUE ('karjens', 'Kari' , 'Jensen', 'IS2', '004');
+INSERT INTO dat1000.student VALUE ('nilsnils', 'Nils' , 'Nilsen', 'IS2', '005');
+INSERT INTO dat1000.student VALUE ('grepetter', 'Grete' , 'Pettersen', 'IS2', '006');
+
+INSERT INTO fagdeltager VALUE ('DAT1000', 'andanders');
+INSERT INTO fagdeltager VALUE ('DAT1000', 'evahans');
+INSERT INTO fagdeltager VALUE ('DAT1000', 'oleols');
+INSERT INTO fagdeltager VALUE ('INF1000', 'andanders');
+INSERT INTO fagdeltager VALUE ('INF1000', 'evahans');
+INSERT INTO fagdeltager VALUE ('INF1000', 'oleols');
