@@ -6,16 +6,18 @@
 
 ?>
 
-<form class="form" method="post" name="form" action= this.php>
-	<label for="name">Navn</label>
-	<input type="text" class="name" id="name" required>
-	<label for="email">E-Post</label>
-	<input type="email" class="email" id="email" required>
-	<label for="telefon">Telefon</label>
-	<input type="text" class="telefon" id="telefon" required>
-	<label for="hvorfor">Hva</label>
-	<textarea class="hvorfor" name="hvorfor" id="hvorfor">Hva ønsker du?</textarea>
+<form class="form" method="POST" name="form" action ="<?php echo admin_url('admin-post.php'); ?>" >
+	<label for="lh_name">Navn</label>
+	<input type="text" class="lh_name" id="lh_name" name="lh_name" value="" required>
+	<label for="lh_email">E-Post</label>
+	<input type="text" class="lh_email" id="lh_email" name="lh_email" value="" required>
+	<label for="lh_telefon">Telefon</label>
+	<input type="text" class="lh_telefon" id="lh_telefon" name="lh_telefon" value="" required>
+	<label for="lh_hvorfor">Hva ønsker du?</label>
+	<textarea class="lh_hvorfor" id="lh_hvorfor" name="lh_hvorfor"></textarea>
 	<br>
+	<input type='hidden' name='action' value='submitform'/>
+	<?php wp_nonce_field( 'submitform', 'submitform_nonce' ); ?>
 	<input type="submit" name="submit" id="submit" value="Send"/>
 
 </form>
