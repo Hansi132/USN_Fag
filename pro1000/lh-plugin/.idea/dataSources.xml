@@ -7,5 +7,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/233569</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="wp_myblog@localhost" uuid="ed39a11f-a550-4686-b274-fc5247335b72">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/wp_myblog</jdbc-url>
+    </data-source>
   </component>
 </project>

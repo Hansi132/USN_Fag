@@ -18,7 +18,7 @@ function my_plugin_options() {
 
 	global $wpdb;
 
-	$sql = "SELECT * FROM {$wpdb->base_prefix}order_system WHERE is_done =! 1";
+	$sql = "SELECT * FROM {$wpdb->base_prefix}order_system WHERE is_done='0'";
 
 	$results = $wpdb->get_results($sql);
 
@@ -42,6 +42,7 @@ function my_plugin_options() {
 			<td><?php echo $result->phone; ?></td>
 			<td><?php echo $result->what; ?></td>
 			<td><?php echo $result->created_at; ?></td>
+
 		</tr>
 		<br><br><br>
 	<?php } ?>
