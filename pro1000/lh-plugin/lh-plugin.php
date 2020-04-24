@@ -4,7 +4,7 @@
 Plugin Name: Lh Plugin
 Plugin URI: https://github.com/Hansi132/USN_Fag
 Description: Lises Hemmelighet custom plugin.
-Version: 1.1
+Version: 1.2
 Author: Hans Kristian Odberg Markeseth
 Author URI: https://github.com/Hansi132/
 License: A "Slug" license name e.g. GPL2
@@ -23,6 +23,8 @@ function function_deleteform() {
 		)
 	);
 }
+
+
 
 add_action('admin_post_nopriv_deleteform', 'function_deleteform');
 add_action('admin_post_deleteform', 'function_deleteform');
@@ -71,3 +73,16 @@ function wp_shortcode_create() {
 }
 
 add_shortcode("CreateForm", "wp_shortcode_create");
+
+add_action("admin_init", "lh_admin_init");
+
+function lh_admin_init() {
+	wp_register_style("lh-style", "/wp-content/plugins/lh-plugin/styles/lh-style.css");
+
+	add_action("admin_print_styles", "lh_admin_style");
+
+	function lh_admin_style() {
+		wp_enqueue_style("lh-style");
+	}
+
+}

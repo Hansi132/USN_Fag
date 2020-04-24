@@ -1,0 +1,24 @@
+table {
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid #d22c58;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: Consolas;
+    font-size: 18px;
+}
+
+td {
+    padding: 0.8rem;
+    border: 3px solid #d22c58;
+}
+
+button {
+    background: white;
+    border: 1px solid black;
+}
+
+button:hover {
+    background: #d22c58;
+}
