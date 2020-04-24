@@ -8,7 +8,7 @@ if (!function_exists("add_action")) {
 add_action("admin_menu", "my_plugin_menu");
 
 function my_plugin_menu() {
-	add_menu_page("My Plugin options", "Lises Hemmelighet", "manage_options", "lh_admin_page", "my_plugin_options");
+	add_menu_page("Lises Hemmelighet", "Lises Hemmelighet", "manage_options", "lh_admin_page", "my_plugin_options", "dashicons-cart");
 }
 
 function my_plugin_options() {
@@ -16,13 +16,11 @@ function my_plugin_options() {
 		wp_die(__("You do not have the sufficient permissions to access this page"));
 	}
 
-
-
 	global $wpdb;
 
-	$sql = "SELECT * FROM {$wpdb->base_prefix}order_system WHERE wp_order_system.is_done =! 1";
+	$sql = "SELECT * FROM {$wpdb->base_prefix}order_system WHERE is_done =! 1";
 
-	$results = $wpdb -> get_results($sql);
+	$results = $wpdb->get_results($sql);
 
 	?>
 <form class="form" method="POST" name="form" action ="<?php echo admin_url('admin-post.php'); ?>" >
@@ -54,6 +52,5 @@ function my_plugin_options() {
 
 
 <?php
-
 }
 ?>
