@@ -17,34 +17,43 @@ function my_plugin_options() {
 	}
 
 
-	//TODO Here we add setting for using the database, and how we setup the plugin to work.
-	//TODO Include database, fetch the current not closed orders from the database
-
-
-	include_once("dbconnection.php");
 
 	global $wpdb;
 
-	$sql = "SELECT * FROM {$wpdb->base_prefix}order_system /*WHERE wp_order_system.is_done =! 1*/";
+	$sql = "SELECT * FROM {$wpdb->base_prefix}order_system WHERE wp_order_system.is_done =! 1";
 
 	$results = $wpdb -> get_results($sql);
 
 	?>
-	<table class="table table-hover">
+<form class="form" method="POST" name="form" action ="<?php echo admin_url('admin-post.php'); ?>" >
+	<table class="table" border>
+		<tr>
+			<td>Fullført</td>
+			<td>Navn</td>
+			<td>Epost</td>
+			<td>Telefon</td>
+			<td>Hva</td>
+			<td>Ordre Lagd</td>
+		</tr>
 	<?php foreach ($results as $result) { ?>
 		<tr>
 			<!-- We need a radio button with the class of result->order_id -->
-			<td><button>Done</button></td>
+			<td><button type="submit" id="submit" name="submit" value="<?php echo $result->order_key ?>">Merk ferdig</button></td>
 			<td><?php echo $result->name; ?></td>
 			<td><?php echo $result->email;?></td>
 			<td><?php echo $result->phone; ?></td>
 			<td><?php echo $result->what; ?></td>
 			<td><?php echo $result->created_at; ?></td>
-			<td><?php echo $result->is_done; ?></td>
 		</tr>
 		<br><br><br>
+	<?php } ?>
+	</table>
+	<input type='hidden' name='action' value='deleteform'/>
+	<?php wp_nonce_field( 'submitform', 'deleteform_nonce' ); ?>
+</form>
 
-	<?php }
+
+<?php
 
 }
 ?>

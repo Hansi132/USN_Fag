@@ -10,10 +10,27 @@ Author URI: https://github.com/Hansi132/
 License: A "Slug" license name e.g. GPL2
 */
 
+include_once("lh_dbconnection.php");
+
+date_default_timezone_set("Europe/Oslo");
+
+function function_deleteform() {
+	global $wpdb;
+	wp_redirect(wp_get_referer());
+	$wpdb->query(
+		$wpdb->prepare(
+			"UPDATE wp_order_system SET is_done=1 WHERE order_key={$_POST['submit']}"
+		)
+	);
+}
+
+add_action('admin_post_nopriv_deleteform', 'function_deleteform');
+add_action('admin_post_deleteform', 'function_deleteform');
 
 function function_submitform() {
+
 	global $wpdb;
-	wp_redirect("http://localhost/wordpress/?page_id=119");
+	wp_redirect(wp_get_referer());
 	$wpdb->insert(
 		'wp_order_system',
 		array(
@@ -21,7 +38,7 @@ function function_submitform() {
 			'email' => $_POST["lh_email"],
 			'phone' => $_POST["lh_telefon"],
 			'what' => $_POST["lh_hvorfor"],
-			'created_at' => "2020-04-23 15:32:32", //TODO Find a way to get the time working.
+			'created_at' => date("Y-m-d H:i:s"),
 			'is_done' => 0
 		),
 		array(
@@ -39,7 +56,7 @@ add_action('admin_post_submitform', 'function_submitform');
 
 
 /* Database Creation */
-require_once ("dbconnection.php");
+require_once("lh_dbconnection.php");
 
 /* Admin panel */
 require_once ("lh-Admin.php");
