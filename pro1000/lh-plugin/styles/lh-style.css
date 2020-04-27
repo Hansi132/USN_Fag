@@ -1,4 +1,4 @@
-table {
+.lh_table {
     margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
@@ -9,30 +9,30 @@ table {
     font-size: 18px;
 }
 
-td {
+.lh_td {
     padding: 0.8rem;
     border: 3px solid #d22c58;
 }
 
-button {
+.lh_button {
     background: white;
     border: 1px solid black;
 }
 
-button:hover {
+.lh_button:hover {
     background: #d22c58;
 }
 
-a:link {
+.lh_a:link {
     text-decoration: none;
     color: blue;
 }
 
-a:visited {
+.lh_a:visited {
     text-decoration: none;
 }
 
-a:hover {
+.lh_a:hover {
     text-decoration: none;
     font-weight: bold;
     color: #d22c58;
