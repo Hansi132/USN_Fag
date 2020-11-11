@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Vis alle studenter</title>
+	<title>Vis alle studenter</title>
 </head>
 <body>
 
@@ -10,18 +10,16 @@
 $myfile = "./student.txt";
 $handler = fopen($myfile, 'r');
 
-while(!feof($handler)){
-    $line = fgets($handler);
-    $class = explode(";", $line);
+while (!feof($handler)) {
+	$line = fgets($handler);
+	$class = explode(";", $line);
 
-    foreach($class as $value){
-        echo $value . "<br>";
-    }
+	foreach ($class as $value) {
+		echo $value . "<br>";
+	}
 }
 
 fclose($handler);
-
-
 
 
 ?>

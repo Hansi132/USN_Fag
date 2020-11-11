@@ -1,0 +1,1 @@
+SELECT `order`.sales_order, CONCAT(cu.first_name, ' ', cu.last_name) AS 'Name', cu.email, `order`.price FROM `order` JOIN commerce_user cu on `order`.commerce_user = cu.id WHERE status = 0 AND `order`.date > 2020-01-1;

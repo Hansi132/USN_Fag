@@ -1,0 +1,45 @@
+Mapping komplett systems
+
+commerce_user
+  id
+  first_name
+  last_name
+  email
+  password
+
+logistics_user
+  id
+  first_name
+  last_name
+  email
+  password
+  printer
+
+order
+  sales_order
+  commerce_user -> id
+  location -> number
+  item -> number
+  shipment -> number
+  logistics_user -> id
+  date
+  time
+  status
+
+location
+  number
+  item -> number
+  available_quantity
+  total_quantity
+
+item
+  number
+  name
+  ean
+  short_description
+  available_quantity
+  total_quantity
+
+shipment
+  number
+  short_description

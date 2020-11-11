@@ -81,7 +81,7 @@ function dynamicBoxBrukernavn()
     include("dbconnection.php");
 
 
-    $sql = "SELECT * FROM STUDENT";
+    $sql = "SELECT * FROM STUDENT;";
 
     if (!empty($conn)) {
         $result = mysqli_query($conn, $sql) or die ("Not possible to fetch from db");

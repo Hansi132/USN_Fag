@@ -72,7 +72,7 @@ include("IsLogged.php");
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
 
         Beskrivelse <br>
-        <input value="" type="text" name="beskrivelse" id="beskrivelse"  onFocus="fokus(this)"
+        <input value="" type="text" name="beskrivthis else" id="beskrivelse"  onFocus="fokus(this)"
                onBlur="mistetFokus(this)" onMouseOver="musInn(this)" onMouseOut="musUt()" /> <br>
 
         <br>

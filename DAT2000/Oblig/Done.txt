@@ -1,0 +1,20 @@
+(DONE) En lagret prosedyre for å sette inn én rad i minst én av tabellene i databasen.
+
+(DONE) En lagret prosedyre for å slette én rad i minst én av tabellene i databasen.
+
+(DONE) En lagret prosedyre som setter inn / oppdaterer data i minst to tabeller ved
+hjelp av en transaksjon.
+
+(DONE? Laget en trigger som sikrer at du ikke kan bestille flere items enn vi har ledig) En lagret prosedyre som sikrer "forretningsregler" i databasen, f.eks.
+kontrollerer lovlige verdier.
+
+ En lagret funksjon som bruker data fra minst to kollonner i en tabell.
+
+ En lagret funksjon som summerer/kombinerer data fra mer enn én rad i en
+tabell.
+
+(DONE) Triggere som sikrer konsistens i databasen, f.eks. ved å oppdatere en tabell
+som følge av endringer i en annen tabell, eller sette defaultverdier i nye rader.
+
+(DONE) En trigger som tar vare på historiske data ved endring/sletting av rader i en
+tabell.

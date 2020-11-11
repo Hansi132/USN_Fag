@@ -16,8 +16,6 @@ include("IsLogged.php");
     <script src="valid.js"> </script>
     <script src="case.js"> </script>
     <script src="ajax-ri-database.js"> </script>
-
-
 </head>
 <body>
 <header>

@@ -12,10 +12,10 @@ include("IsLogged.php");
     <meta name="author" content="Hans Kristian Markeseth">
     <title>Assignment 2 | Welcome</title>
     <link rel="stylesheet" href="stil.css">
-    <script src="ajax.js"> </script>
-    <script src="valid.js"> </script>
-    <script src="case.js"> </script>
-    <script src="ajax-finn-student.js"> </script>
+    <script src="ajax.js"></script>
+    <script src="valid.js"></script>
+    <script src="case.js"></script>
+    <script src="ajax-finn-student.js"></script>
 
 
 </head>
@@ -32,13 +32,14 @@ include("IsLogged.php");
                 <li><a href="endre-klasse.php">Endre Klasse</a></li>
                 <li><a href="slett-klasse.php">Slett Klasse</a></li>
                 <li><a href="registrer-student.php">Registrer Student</a></li>
-                <li class = "current"><a href="endre-student.php">Endre Student</a></li>
+                <li class="current"><a href="endre-student.php">Endre Student</a></li>
                 <li><a href="slett-student.php">Slett Student</a></li>
                 <li><a href="registrer-bilde.php">Registrer bilde</a></li>
-                <li ><a href="endre-bilde.php">Endre bilde</a></li>
+                <li><a href="endre-bilde.php">Endre bilde</a></li>
                 <li><a href="slett-bilde.php">Slett bilde</a></li>
                 <li><a href="vis-alle-klasser.php">Vis alle klasser</a></li>
-                <li><a href="vis-alle-studenter.php">vis alle studenter</a><li>
+                <li><a href="vis-alle-studenter.php">vis alle studenter</a>
+                <li>
                 <li><a href="vis-alle-bilder.php">Vis bilder</a></li>
                 <li><a href="vis-klasseliste.php">Vis klasseliste</a></li>
                 <li><a href="search.php">Sokefunksjon</a></li>
@@ -67,29 +68,30 @@ include("IsLogged.php");
 
         <br> Klassekode <br>
         <select name="klassekode" id="klassekode">
-            <?php include_once("dynamicfunctions.php"); dynamicBoxFagkode(); ?>
+            <?php include_once("dynamicfunctions.php");
+            dynamicBoxFagkode(); ?>
         </select>
 
         <br> Brukernavn <br>
         <select name="brukernavn" id="brukernavn" onchange="finn(this.value)">
             <option value="" selected disabled hidden>Please select a value</option>
-            <?php include_once("dynamicfunctions.php"); dynamicBoxBrukernavn(); ?>
+            <?php include_once("dynamicfunctions.php");
+            dynamicBoxBrukernavn(); ?>
         </select>
 
 
         <br> Bildenr <br>
-        <select name="bildenr" id="bildenr" >
-            <?php include_once("dynamicfunctions.php"); dynamicBoxBildenr(); ?>
+        <select name="bildenr" id="bildenr">
+            <?php include_once("dynamicfunctions.php");
+            dynamicBoxBildenr(); ?>
         </select>
 
         <br>
         <br>
 
 
-
-
         <input type="submit" name="submit" id="submit" value="Endre student"/>
-        <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()" >
+        <input type="reset" value="Nullstill" id="reset" name="reset" onClick="fjernMelding()">
 
 
     </form>
@@ -106,7 +108,7 @@ include("IsLogged.php");
 
 include("dbconnection.php");
 
-error_reporting (E_ALL ^ E_NOTICE);
+error_reporting(E_ALL ^ E_NOTICE);
 
 
 $fornavn = $_POST["fornavn"];
@@ -121,31 +123,29 @@ $lovligetternavn = true;
 $lovligbrukernavn = true;
 
 
-if(!$klassekode){
-    $lovligKlassekode=false;
+if (!$klassekode) {
+    $lovligKlassekode = false;
     print("Klassekode er ikke fylt ut");
-}
-else if (strlen($klassekode)!=3){
-    $lovligKlassekode=false;
+} else if (strlen($klassekode) != 3) {
+    $lovligKlassekode = false;
     print("Klassekode er ikke tre tegn");
 }
 
-if(!$fornavn || !$etternavn || !$brukernavn){
-    $lovligKlassekode=false;
+if (!$fornavn || !$etternavn || !$brukernavn) {
+    $lovligKlassekode = false;
     print("Alle felt er ikke fylt ut");
 }
 
-if($lovligfornavn && $lovligetternavn && $lovligbrukernavn){
+if ($lovligfornavn && $lovligetternavn && $lovligbrukernavn) {
 
     //issue make the klassekode and bildenr be dynamic list
 
 //sql query goes here
     $sql = "UPDATE STUDENT SET fornavn = '$fornavn', etternavn = '$etternavn', klassekode = '$klassekode', bildenr = '$bildenr' WHERE brukernavn = '$brukernavn';";
 
-    if(mysqli_query($conn, $sql)){
+    if (mysqli_query($conn, $sql)) {
         print ("New record inserted");
-    }
-    else {
+    } else {
 
         return;
     }

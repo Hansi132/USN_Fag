@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="web01.usn.no" id="31b87da1-1ca5-4cfe-ace1-fb1933f4528a" port="22" customName="web01.usn.no" nameFormat="CUSTOM" username="233569" />
+      <sshConfig authType="PASSWORD" host="web01.usn.no" id="242c117f-b091-44d4-94f0-e20a9b8e227c" port="22" customName="web01.usn.no" nameFormat="CUSTOM" username="233569" />
+    </configs>
+  </component>
+</project>
